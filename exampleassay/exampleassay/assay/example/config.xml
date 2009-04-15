@@ -1,0 +1,4 @@
+<ap:provider xmlns:exp="http://cpas.fhcrc.org/exp/xml" xmlns:ap="http://labkey.org/study/assay/xml">
+    <ap:name>LabKey Example</ap:name>
+    <ap:description>LabKey example file-based assay.</ap:description>
+</ap:provider>

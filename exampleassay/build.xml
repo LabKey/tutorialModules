@@ -1,0 +1,15 @@
+<project name="exampleassay" basedir="." default="deploy">
+
+  <property name="project.root" value="../../.."/>
+  <property name="deploy.modules.dir" value="${project.root}/build/deploy/modules"/>
+
+  <target name="deploy">
+    <jar jarfile="${deploy.modules.dir}/exampleassay.module">
+      <fileset dir="exampleassay">
+        <include name="**/*"/>
+      </fileset>
+    </jar>
+
+  </target>
+
+</project>

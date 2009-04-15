@@ -1,1 +1,11 @@
 * text=auto !eol
+exampleassay/build.xml -text
+exampleassay/data/Machines.xls -text
+exampleassay/data/NewAssay_BadData.xls -text
+exampleassay/data/NewAssay_Run1.xls -text
+exampleassay/data/NewAssay_Run2.xls -text
+exampleassay/exampleassay/assay/example/config.xml -text
+exampleassay/exampleassay/assay/example/domains/batch.xml -text
+exampleassay/exampleassay/assay/example/domains/result.xml -text
+exampleassay/exampleassay/assay/example/domains/run.xml -text
+exampleassay/exampleassay/assay/example/views/upload.html -text
