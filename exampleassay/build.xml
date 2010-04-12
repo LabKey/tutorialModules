@@ -5,8 +5,8 @@
 
   <target name="deploy">
     <jar jarfile="${deploy.modules.dir}/exampleassay.module">
-      <fileset dir="exampleassay">
-        <include name="**/*"/>
+      <fileset dir=".">
+        <exclude name="data/**"/>
       </fileset>
     </jar>
 
