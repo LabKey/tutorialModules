@@ -3,10 +3,8 @@ exampleassay/data/Machines.xls -text
 exampleassay/data/NewAssay_BadData.xls -text
 exampleassay/data/NewAssay_Run1.xls -text
 exampleassay/data/NewAssay_Run2.xls -text
-exampleassay/module.properties -text
 exampleassay/resources/assay/example/config.xml -text
 exampleassay/resources/assay/example/domains/batch.xml -text
 exampleassay/resources/assay/example/domains/result.xml -text
 exampleassay/resources/assay/example/domains/run.xml -text
 exampleassay/resources/assay/example/views/upload.html -text
-exampleassay/skipBuild.txt -text
