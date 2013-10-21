@@ -51,7 +51,7 @@ function done()
 
 function saveBatch()
 {
-    if (!LABKEY.dirty) return;
+    if (!LABKEY.isDirty()) return;
 
     LABKEY.Experiment.saveBatch({
         assayId : LABKEY.page.assay.id,
