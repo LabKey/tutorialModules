@@ -1,0 +1,7 @@
+<webpart xmlns="http://labkey.org/data/xml/webpart" 
+    title="Lab Results (Interactive Tour)">
+   <view name="Lab Results"/>
+<!--     <locations>
+        <location name="body"/>
+     </locations>-->
+</webpart>
