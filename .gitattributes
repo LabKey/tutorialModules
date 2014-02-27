@@ -9,7 +9,7 @@ exampleassay/resources/assay/example/domains/result.xml -text
 exampleassay/resources/assay/example/domains/run.xml -text
 exampleassay/resources/assay/example/views/upload.html -text
 interactiveTutorial/module.properties -text
-interactiveTutorial/views/Lab[!!-~]Results.html -text
-interactiveTutorial/views/Lab[!!-~]Results.webpart.xml -text
-interactiveTutorial/views/Physical[!!-~]Exam.html -text
-interactiveTutorial/views/Physical[!!-~]Exam.webpart.xml -text
+interactiveTutorial/resources/views/Lab[!!-~]Results.html -text
+interactiveTutorial/resources/views/Lab[!!-~]Results.webpart.xml -text
+interactiveTutorial/resources/views/Physical[!!-~]Exam.html -text
+interactiveTutorial/resources/views/Physical[!!-~]Exam.webpart.xml -text

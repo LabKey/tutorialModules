@@ -1,0 +1,4 @@
+<webpart xmlns="http://labkey.org/data/xml/webpart" 
+    title="10 Minute Tutorial - Lab Results">
+   <view name="Lab Results"/>
+</webpart>

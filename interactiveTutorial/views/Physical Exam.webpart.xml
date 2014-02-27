@@ -1,7 +1,0 @@
-<webpart xmlns="http://labkey.org/data/xml/webpart" 
-    title="Physical Exam (Interactive Tour)">
-   <view name="Physical Exam"/>
-<!--     <locations>
-        <location name="body"/>
-     </locations>-->
-</webpart>
