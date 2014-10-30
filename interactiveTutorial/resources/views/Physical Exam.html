@@ -1,21 +1,23 @@
 <div id='divPhysicalExam'/>
 <script type="text/javascript">
 
-    ///////////////////////////////////////
-    // A narrow grid view that frees up real estate
-    // on the rightside.
-    ///////////////////////////////////////
-
-    var qwp1 = new LABKEY.QueryWebPart({
-    renderTo: 'divPhysicalExam',
-    title: 'Physical Exam',
-    schemaName: 'study',
-    queryName: 'Physical Exam Query',
-	showDetailsColumn: false,
-	frame: ' none',
-    maxRows: '20',
-    buttonBar: {
-        includeStandardButtons: true,
-    }
+// Ensure that page dependencies are loaded
+LABKEY.requiresExt3ClientAPI(true, function() {
+    Ext.onReady(initPE);
 });
+
+function initPE() {
+    // A narrow grid view that frees up real estate
+    // on the rightside, by setting frame to 'none'.
+    var qwp1 = new LABKEY.QueryWebPart({
+        renderTo: 'divPhysicalExam',
+        title: 'Physical Exam',
+        schemaName: 'study',
+        queryName: 'Physical Exam Query',
+        showDetailsColumn: false,
+        frame: 'none',
+        maxRows: '20',
+        buttonBar: { includeStandardButtons: true }
+    });
+}
 </script>
