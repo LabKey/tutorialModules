@@ -14,7 +14,7 @@ interface State {
     value?: string
 }
 
-export class App extends React.Component<any, State> {
+export class App extends React.PureComponent<any, State> {
 
     constructor(props)
     {

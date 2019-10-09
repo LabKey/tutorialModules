@@ -16,9 +16,8 @@ const render = () => {
 
 declare const module: any;
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    render();
-    if (module.hot) {
-        module.hot.accept();
-    }
-});
+if (module.hot) {
+    module.hot.accept();
+}
+
+render();
