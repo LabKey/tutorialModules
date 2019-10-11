@@ -15,8 +15,9 @@ There are two example React pages at
 # Functionality Overview
 The compilation and packaging of this module, including the NPM/webpack build, is done with the standard LabKey Gradle build. 
 Gradle will use the Node and NPM version defined in \<projectHome\>/gradle.properties to run the "build-prod" script defined in package.json.
-(Note: Gradle does not install Node/NPM globally. To run NPM commands outside of Gradle you will need to have Node/NPM installed 
-locally.)
+Note: Gradle does not install Node/NPM globally. To run NPM commands outside of Gradle you will need to have Node/NPM installed 
+locally. For more information on what "scripts" the LabKey Gradle build expects from the module package.json file, 
+see the [Node.js Build Dependency] documentation page.
 
 The webpack production build will compile TypeScript and JavaScript files, as well as CSS and SCSS files, and bundle them independently 
 for each webpack entry point.  The bundled resources will be placed in the appropriate LabKey directory for web resources.  The production build will also 
@@ -37,4 +38,5 @@ This module is setup to run Jest tests, including using Enzyme and Jest Snapshot
 Jest snapshot in the HelloWorld module.  Jest tests can be run using "npm run test" or they can be run directly in IntelliJ.
 
     
-[LabKey Gradle build]: https://www.labkey.org/Documentation/wiki-page.view?name=gradleBuild    
+[LabKey Gradle build]: https://www.labkey.org/Documentation/wiki-page.view?name=gradleBuild   
+[Node.js Build Dependency]: https://www.labkey.org/Documentation/wiki-page.view?name=nodejs 
