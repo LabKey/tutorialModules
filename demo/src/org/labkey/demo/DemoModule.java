@@ -49,7 +49,7 @@ public class DemoModule extends DefaultModule
     @Override
     public double getVersion()
     {
-        return 19.30;
+        return 20.000;
     }
 
     @Override
