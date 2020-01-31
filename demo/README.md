@@ -1,11 +1,11 @@
 # Summary
-This is a demo LabKey ReactJS module. This module demonstrates how to render a React application within the LabKey framework 
+This is a demo LabKey ReactJS module. This module demonstrates how to render a React application/page within the LabKey framework 
 including keeping the standard LabKey header and header menus.
 
 <a name="gettingStarted"></a>
 # Getting Started
-Clone the tutorialModules repo into /server/modules directory and add the directory in settings.gradle.  Build this module 
-using the [LabKey Gradle build]. This will install necessary packages, generate resources and put resources in correct LabKey locations.
+Clone the tutorialModules repo into `/server/modules` directory and add the directory in `settings.gradle`.  You can then build this module 
+using the [LabKey Gradle build]. This will install necessary packages, generate resources and put resources in correct LabKey module's directories.
 
 There are two example React pages at
 - http://localhost:8080/labkey/home/demo-helloWorld.view?
@@ -14,7 +14,7 @@ There are two example React pages at
 <a name="functionality"></a>
 # Functionality Overview
 The compilation and packaging of this module, including the NPM/webpack build, is done with the standard LabKey Gradle build. 
-Gradle will use the Node and NPM version defined in \<projectHome\>/gradle.properties to run the "build-prod" script defined in package.json.
+Gradle will use the Node and NPM version defined in \<projectHome\>/gradle.properties to run the `build-prod` script defined in package.json.
 Note: Gradle does not install Node/NPM globally. To run NPM commands outside of Gradle you will need to have Node/NPM installed 
 locally. For more information on what "scripts" the LabKey Gradle build expects from the module package.json file, 
 see the [Node.js Build Dependency] documentation page.
@@ -28,14 +28,15 @@ to make the bundled React and CSS files available to the appropriate LabKey Reac
 ## Development Server
 This module includes a webpack development server to help with rapid development.  The server is setup for Hot Module Replacement, 
 to allow updates made to TypeScript, JavaScript, CSS and SCSS files to take effect on the page without manual builds or page refreshes. To 
-start the server, from the command line in the demo module directory run "npm start", then navigate to either of the appropriate development pages.
+start the server, from the command line in the demo module directory run `npm start`, then navigate to either of the appropriate development 
+pages (note the "Dev" added to the end of the action name).
 - http://localhost:8080/labkey/home/demo-helloWorldDev.view?
 - http://localhost:8080/labkey/home/demo-todoListDev.view?
 
 <a name="jest"></a>
 ## Jest Tests
 This module is setup to run Jest tests, including using Enzyme and Jest Snapshot testing. There is an example Jest test and 
-Jest snapshot in the HelloWorld module.  Jest tests can be run using "npm run test" or they can be run directly in IntelliJ.
+Jest snapshot in the HelloWorld module.  Jest tests can be run using `npm run test` or they can be run directly in IntelliJ.
 
     
 [LabKey Gradle build]: https://www.labkey.org/Documentation/wiki-page.view?name=gradleBuild   
