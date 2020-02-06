@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Panel, Button, Form, FormControl, Col, Row } from 'react-bootstrap'
 import {List} from 'immutable'
 import "./todolist.scss";
@@ -14,7 +14,7 @@ interface State {
     value?: string
 }
 
-export class App extends React.PureComponent<any, State> {
+export class App extends React.Component<any, State> {
 
     constructor(props)
     {
