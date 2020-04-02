@@ -46,6 +46,26 @@ for (let i = 0; i < entryPoints.apps.length; i++) {
             template: 'webpack/app.template.html'
         })
     ]);
+
+    if (entryPoint.webpart) {
+        plugins = plugins.concat([
+            new HtmlWebpackPlugin({
+                inject: false,
+                name: entryPoint.name,
+                title: entryPoint.title,
+                filename: '../../../views/' + entryPoint.name + '.webpart.xml',
+                template: 'webpack/app.webpart.template.xml'
+            }),
+            new HtmlWebpackPlugin({
+                inject: false,
+                mode: 'dev',
+                name: entryPoint.name + "Dev",
+                title: entryPoint.title + " Dev",
+                filename: '../../../views/' + entryPoint.name + 'Dev.webpart.xml',
+                template: 'webpack/app.webpart.template.xml'
+            })
+        ])
+    }
 }
 
 plugins.push(new MiniCssExtractPlugin());
