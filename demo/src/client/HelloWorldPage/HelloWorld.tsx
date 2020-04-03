@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import "./helloWorld.scss";
 
 export class App extends React.PureComponent<any, any> {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Panel, Button, Form, FormControl, Col, Row } from 'react-bootstrap'
 import {List} from 'immutable'
+import { getServerContext } from "@labkey/api";
 import "./todolist.scss";
 
 interface Item {
@@ -69,7 +70,7 @@ export class App extends React.Component<any, State> {
         return (
             <Panel className={'panel-primary'}>
                 <Panel.Heading>
-                    My Test Page Panel
+                    Create New To-Do List Items
                 </Panel.Heading>
                 <Panel.Body>
                     <Form>
@@ -99,7 +100,7 @@ export class App extends React.Component<any, State> {
         return (
             <Panel>
                 <Panel.Heading>
-                    My To-Do List
+                    To-Do List for {getServerContext().user.displayName}
                 </Panel.Heading>
                 <Panel.Body>
                     <p>
