@@ -97,10 +97,9 @@ public class DemoController extends SpringActionController
         }
 
         @Override
-        public NavTree appendNavTrail(NavTree root)
+        public void addNavTrail(NavTree root)
         {
             root.addChild("Demo", getURL());
-            return root;
         }
 
         public ActionURL getURL()
@@ -150,12 +149,10 @@ public class DemoController extends SpringActionController
         }
 
         @Override
-        public NavTree appendNavTrail(NavTree root)
+        public void addNavTrail(NavTree root)
         {
             root.addChild("Demo", new ActionURL(BeginAction.class, getContainer()));
             root.addChild("Insert Person");
-
-            return root;
         }
 
         public ActionURL getURL()
@@ -222,12 +219,10 @@ public class DemoController extends SpringActionController
         }
 
         @Override
-        public NavTree appendNavTrail(NavTree root)
+        public void addNavTrail(NavTree root)
         {
             root.addChild("Demo", new ActionURL(BeginAction.class, getContainer()));
             root.addChild(getPageTitle());
-
-            return root;
         }
 
         public String getPageTitle()
@@ -306,12 +301,10 @@ public class DemoController extends SpringActionController
         }
 
         @Override
-        public NavTree appendNavTrail(NavTree root)
+        public void addNavTrail(NavTree root)
         {
             root.addChild("Demo", new ActionURL(BeginAction.class, getContainer()));
             root.addChild("Bulk Update");
-
-            return root;
         }
 
         public ActionURL getURL()
@@ -350,9 +343,8 @@ public class DemoController extends SpringActionController
             return new BeginAction().getURL();
         }
 
-        public NavTree appendNavTrail(NavTree root)
+        public void addNavTrail(NavTree root)
         {
-            return null;
         }
     }
 
@@ -699,12 +691,10 @@ public class DemoController extends SpringActionController
             return new JspView<>("/org/labkey/demo/view/bindTest.jsp", form, errors);
         }
 
-
-        public NavTree appendNavTrail(NavTree root)
+        public void addNavTrail(NavTree root)
         {
-            return root.addChild(getPageTitle());
+            root.addChild(getPageTitle());
         }
-
 
         public String getPageTitle()
         {
