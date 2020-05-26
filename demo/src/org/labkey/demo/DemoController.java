@@ -321,11 +321,13 @@ public class DemoController extends SpringActionController
     @RequiresPermission(DeletePermission.class)
     public class DeleteAction extends FormViewAction
     {
+        @Override
         public HttpView getView(Object o, boolean reshow, BindException errors)
         {
             throw new RedirectException(getSuccessURL(o));
         }
 
+        @Override
         public boolean handlePost(Object o, BindException errors)
         {
             Set<Integer> personIds = DataRegionSelection.getSelectedIntegers(getViewContext(), true);
@@ -334,15 +336,18 @@ public class DemoController extends SpringActionController
             return true;
         }
 
+        @Override
         public void validateCommand(Object o, Errors errors)
         {
         }
 
+        @Override
         public ActionURL getSuccessURL(Object o)
         {
             return new BeginAction().getURL();
         }
 
+        @Override
         public void addNavTrail(NavTree root)
         {
         }
@@ -646,6 +651,7 @@ public class DemoController extends SpringActionController
     @RequiresPermission(ReadPermission.class)
     public class BindAction extends SimpleViewAction<BindActionBean>
     {
+        @Override
         public ModelAndView handleRequest() throws Exception
         {
             // if no values were posted, use test parameters
@@ -686,11 +692,13 @@ public class DemoController extends SpringActionController
             return super.handleRequest();
         }
 
+        @Override
         public ModelAndView getView(BindActionBean form, BindException errors)
         {
             return new JspView<>("/org/labkey/demo/view/bindTest.jsp", form, errors);
         }
 
+        @Override
         public void addNavTrail(NavTree root)
         {
             root.addChild(getPageTitle());

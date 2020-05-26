@@ -30,6 +30,7 @@ import java.sql.SQLException;
  */
 public class DemoContainerListener extends ContainerManager.AbstractContainerListener
 {
+    @Override
     public void containerDeleted(Container c, User user)
     {
         DemoManager.getInstance().deleteAllData(c);
