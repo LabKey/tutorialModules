@@ -1,8 +1,34 @@
 
-.world-highlight {
-  color: deeppink;
-  text-shadow: 2px 2px black;
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 5px;
+
+/* TODO: Nesting your css styles, especially bootstrap 4 styles inside the main app class will scope those styles
+    to only your application. They will not affect the page header.  Also because their specificity is greater than the
+    general bootstrap styles labkey provides, these rules will take priority in your app. */
+.hello-world-main {
+
+  /* TODO: These imports are pulling files directly into your css from bootstrap-scss in node_modules. bootstrap-scss
+      was added in the package.json, it only contains the scss for bootstrap 4. ~bootstrap-scss is a short cut to the
+      node_modules directory, provided by the bootstrap-scss package. */
+  /* TODO: Sass is discouraging the use of @import, instead recommending the use of @use which would require more selective
+      importing of styles from bootstrap-scss.*/
+  @import "~bootstrap-scss/functions";
+  @import "~bootstrap-scss/variables";
+  @import "~bootstrap-scss/mixins";
+  @import "~bootstrap-scss/forms";
+  @import "~bootstrap-scss/dropdown";
+
+  /* TODO: In conjunction with importing ~bootstrap-scss or in place of it you can provide specific style updates. LabKey
+       has additional styles that might need to be overridden if you don't want them applied to your components. Those scss
+       files can be found here, https://github.com/LabKey/platform/tree/develop/core/resources/styles/scss/lib/bootstrap*/
+  .form-control {
+    font-size: 1em;
+  }
+
+  .world-highlight {
+    color: deeppink;
+    text-shadow: 2px 2px black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Panel, Button, Form, FormControl, Col, Row } from 'react-bootstrap'
+import { Button, Form, FormControl, Col, Row } from 'react-bootstrap'
 import {List} from 'immutable'
 import { getServerContext } from "@labkey/api";
 import "./todolist.scss";
@@ -68,29 +68,30 @@ export class App extends React.Component<any, State> {
 
     renderItemEntryPanel() {
         return (
-            <Panel className={'panel-primary'}>
-                <Panel.Heading>
-                    Create New To-Do List Items
-                </Panel.Heading>
-                <Panel.Body>
-                    <Form>
-                        <Row>
-                            <Col xs={6}>
-                                <FormControl
-                                    id={'item-text'}
-                                    type="text"
-                                    placeholder={'Enter a text for your to-do list item'}
-                                    onChange={this.onTextChange}
-                                />
-                            </Col>
-                            <Col xs={6}>
-                                <Button className={'labkey-button primary'} onClick={this.addItem}>Add Item</Button>
-                                <Button onClick={this.clearAll} style={{marginLeft: '10px'}}>Clear All</Button>
-                            </Col>
-                        </Row>
-                    </Form>
-                </Panel.Body>
-            </Panel>
+            <div />
+            // <Panel className={'panel-primary'}>
+            //     <Panel.Heading>
+            //         Create New To-Do List Items
+            //     </Panel.Heading>
+            //     <Panel.Body>
+            //         <Form>
+            //             <Row>
+            //                 <Col xs={6}>
+            //                     <FormControl
+            //                         id={'item-text'}
+            //                         type="text"
+            //                         placeholder={'Enter a text for your to-do list item'}
+            //                         onChange={this.onTextChange}
+            //                     />
+            //                 </Col>
+            //                 <Col xs={6}>
+            //                     <Button className={'labkey-button primary'} onClick={this.addItem}>Add Item</Button>
+            //                     <Button onClick={this.clearAll} style={{marginLeft: '10px'}}>Clear All</Button>
+            //                 </Col>
+            //             </Row>
+            //         </Form>
+            //     </Panel.Body>
+            // </Panel>
         )
     }
 
@@ -98,27 +99,28 @@ export class App extends React.Component<any, State> {
         const { todoList } = this.state;
 
         return (
-            <Panel>
-                <Panel.Heading>
-                    To-Do List for {getServerContext().user.displayName}
-                </Panel.Heading>
-                <Panel.Body>
-                    <p>
-                        Click on a To-Do list item to mark is as complete.
-                    </p>
-                    <ul>
-                        {todoList.map((item, i) => {
-                            const cls = item.isComplete ? ' todolist-complete-item' : 'todolist-incomplete-item';
-
-                            return (
-                                <li className={cls} key={i} onClick={() => this.onItemClick(i)}>
-                                    {item.name}: {item.text}
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </Panel.Body>
-            </Panel>
+            <div />
+            // <Panel>
+            //     <Panel.Heading>
+            //         To-Do List for {getServerContext().user.displayName}
+            //     </Panel.Heading>
+            //     <Panel.Body>
+            //         <p>
+            //             Click on a To-Do list item to mark is as complete.
+            //         </p>
+            //         <ul>
+            //             {todoList.map((item, i) => {
+            //                 const cls = item.isComplete ? ' todolist-complete-item' : 'todolist-incomplete-item';
+            //
+            //                 return (
+            //                     <li className={cls} key={i} onClick={() => this.onItemClick(i)}>
+            //                         {item.name}: {item.text}
+            //                     </li>
+            //                 )
+            //             })}
+            //         </ul>
+            //     </Panel.Body>
+            // </Panel>
         )
     }
 

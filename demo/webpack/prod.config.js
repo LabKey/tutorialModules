@@ -27,7 +27,12 @@ for (let i = 0; i < entryPoints.apps.length; i++) {
         new HtmlWebpackPlugin({
             inject: false,
             filename: '../../../views/' + entryPoint.name + '.html',
+
+            // TODO: Use this when not using shadow root
             template: 'webpack/app.template.html'
+
+            // TODO: Use this for shadow root
+            // template: 'webpack/app_shadow.template.html'
         }),
         new HtmlWebpackPlugin({
             inject: false,
@@ -43,7 +48,12 @@ for (let i = 0; i < entryPoints.apps.length; i++) {
             mode: 'dev',
             name: entryPoint.name,
             filename: '../../../views/' + entryPoint.name + 'Dev.html',
+
+            // TODO: Use this when not using shadow root
             template: 'webpack/app.template.html'
+
+            // TODO: Use this for shadow root
+            // template: 'webpack/app_shadow.template.html'
         })
     ]);
 }
