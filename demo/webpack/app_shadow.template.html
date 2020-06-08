@@ -1,0 +1,21 @@
+<div id='my-shadow-host'/>
+
+<script>
+
+    // Select your shadow host
+    window.shadowHost = document.getElementById('my-shadow-host');
+    // Create the shadow root
+    window.shadowRoot = window.shadowHost.attachShadow({mode: 'open'});
+
+    // Create a div element
+    const myDivElement = document.createElement('div');
+    myDivElement.setAttribute('id', 'shadow-div');
+    myDivElement.innerHTML = "<div id='app'></div>";
+    // Append div to shadow DOM
+    window.shadowRoot.appendChild(myDivElement);
+
+</script>
+
+<% if (htmlWebpackPlugin.options.mode === 'dev') { %>
+<script src="http://localhost:3010/<%= htmlWebpackPlugin.options.name %>.js"></script>
+<% } %>
