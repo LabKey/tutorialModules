@@ -16,7 +16,6 @@
 
 package org.labkey.demo.view;
 
-import org.apache.log4j.Logger;
 import org.labkey.api.data.Container;
 import org.labkey.api.view.ActionURL;
 import org.labkey.api.view.JspView;
@@ -34,8 +33,6 @@ import java.util.List;
  */
 public class DemoWebPart extends JspView<List<Person>>
 {
-    private static final Logger _log = Logger.getLogger(DemoWebPart.class);
-
     public DemoWebPart()
     {
         super("/org/labkey/demo/view/demoWebPart.jsp", null);
