@@ -105,7 +105,7 @@
 <b>All errors</b><br><%
 for (ObjectError e : errors.getAllErrors())
 {
-    %><%=(e instanceof FieldError)?((FieldError)e).getField()+": ":""%><%=h(getMessage(e))%><br><%
+    %><%=h((e instanceof FieldError)?((FieldError)e).getField()+": " : "")%><%=h(getMessage(e))%><br><%
 }
 %>
 </labkey:form>
