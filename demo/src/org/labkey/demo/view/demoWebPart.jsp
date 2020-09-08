@@ -15,9 +15,8 @@
  * limitations under the License.
  */
 %>
-<%@ page import="org.labkey.api.view.ActionURL"%>
-<%@ page import="org.labkey.api.view.HttpView" %>
-<%@ page import="org.labkey.demo.DemoController" %>
+<%@ page import="org.labkey.api.view.HttpView"%>
+<%@ page import="org.labkey.demo.DemoController.BeginAction" %>
 <%@ page import="org.labkey.demo.model.Person" %>
 <%@ page import="java.util.List" %>
 <%@ page extends="org.labkey.api.jsp.JspBase" %>
@@ -25,4 +24,4 @@
     List<Person> people = (List<Person>) (HttpView.currentModel());
 %>
 This folder contains <%= people.size() %> people.<br>
-<%= button("View Grid").href(new ActionURL(DemoController.BeginAction.class, getContainer())) %>
+<%= button("View Grid").href(urlFor(BeginAction.class)) %>
