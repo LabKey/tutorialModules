@@ -45,8 +45,8 @@
     {
         %><table><%
         %><tr><td>d</td><td><input name="d" value="<%=formatDateTime(form.getD())%>"></td><td><%=h(getMessage(errors.getFieldError("d")))%></td></tr><%
-        %><tr><td>i</td><td><input name="i" value="<%=h(form.getI())%>"></td><td><%=h(getMessage(errors.getFieldError("i")))%></td></tr><%
-        %><tr><td>j</td><td><input name="j" value="<%=h(form.getJ())%>"></td><td><%=h(getMessage(errors.getFieldError("j")))%></td></tr><%
+        %><tr><td>i</td><td><input name="i" value="<%=form.getI()%>"></td><td><%=h(getMessage(errors.getFieldError("i")))%></td></tr><%
+        %><tr><td>j</td><td><input name="j" value="<%=form.getJ()%>"></td><td><%=h(getMessage(errors.getFieldError("j")))%></td></tr><%
         %><tr><td>k</td><td><input name="k" value="<%=h(form.getK())%>"></td><td><%=h(getMessage(errors.getFieldError("k")))%></td></tr><%
         %><tr><td>l</td><td><input name="l" value="<%=h(form.getL())%>"></td><td><%=h(getMessage(errors.getFieldError("l")))%></td></tr><%
         %><tr><td>s</td><td><input name="s" value="<%=h(form.getS())%>"></td><td><%=h(getMessage(errors.getFieldError("s")))%></td></tr><%
@@ -56,8 +56,8 @@
         %><tr><td>multiString[2]</td><td><input name="multiString" value="<%=h(_get(form.getMultiString(),2))%>"></td><td><%=h(getMessage(errors.getFieldError("multiString[2]")))%></td></tr><%
         %><tr><td>sub</td><td><input disabled value="<%=h(form.getSub())%>"></td><td><%=h(getMessage(errors.getFieldError("sub")))%></td></tr><%
         %><tr><td>sub.s</td><td><input name="sub.s" value="<%=h(form.getSub().getS())%>"></td><td><%=h(getMessage(errors.getFieldError("sub.s")))%></td></tr><%
-        %><tr><td>sub.x</td><td><input name="sub.x" value="<%=h(form.getSub().getX())%>"></td><td><%=h(getMessage(errors.getFieldError("sub.x")))%></td></tr><%
-        %><tr><td>sub.y</td><td><input name="sub.y" value="<%=h(form.getSub().getY())%>"></td><td><%=h(getMessage(errors.getFieldError("sub.y")))%></td></tr><%
+        %><tr><td>sub.x</td><td><input name="sub.x" value="<%=form.getSub().getX()%>"></td><td><%=h(getMessage(errors.getFieldError("sub.x")))%></td></tr><%
+        %><tr><td>sub.y</td><td><input name="sub.y" value="<%=form.getSub().getY()%>"></td><td><%=h(getMessage(errors.getFieldError("sub.y")))%></td></tr><%
 
         %><tr><td>listString[0]</td><td><input name="listString[0]" value="<%=h(_get(form.getListString(),0))%>"></td><td><%=h(getMessage(errors.getFieldError("listString[0]")))%></td></tr><%
         %><tr><td>listString[1]</td><td><input name="listString[1]" value="<%=h(_get(form.getListString(),1))%>"></td><td><%=h(getMessage(errors.getFieldError("listString[1]")))%></td></tr><%

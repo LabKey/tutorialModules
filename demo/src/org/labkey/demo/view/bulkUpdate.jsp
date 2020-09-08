@@ -17,13 +17,14 @@
 %>
 <%@ page import="org.labkey.api.view.HttpView"%>
 <%@ page import="org.labkey.api.view.JspView"%>
+<%@ page import="org.labkey.demo.DemoController" %>
+<%@ page import="org.labkey.demo.DemoController.BulkUpdateAction" %>
 <%@ page import="org.labkey.demo.model.Person" %>
 <%@ page import="org.springframework.validation.Errors" %>
 <%@ page import="org.springframework.validation.ObjectError" %>
 <%@ page import="java.util.HashSet" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="org.labkey.demo.DemoController" %>
 <%@ taglib prefix="labkey" uri="http://www.labkey.org/taglib" %>
 <%@ page extends="org.labkey.api.jsp.JspBase" %>
 <%
@@ -48,7 +49,7 @@
     if (people.size() > 0)
     {
 %>
-    <labkey:form action="bulkUpdate.post" method="POST">
+    <labkey:form action="<%=urlFor(BulkUpdateAction.class)%>" method="POST">
         <table>
             <tr>
                 <th>First Name</th>
