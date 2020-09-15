@@ -8,11 +8,13 @@ module.exports = {
         name: 'helloWorld',
         title: 'Hello World Page',
         permission: 'read',
-        path: './src/client/HelloWorldPage'
+        path: './src/client/HelloWorldPage',
+        webpart: true
     },{
         name: 'todoList',
         title: 'To-Do List Page',
         permission: 'insert',
-        path: './src/client/ToDoListPage'
+        path: './src/client/ToDoListPage',
+        webpart: false
     }]
 };
