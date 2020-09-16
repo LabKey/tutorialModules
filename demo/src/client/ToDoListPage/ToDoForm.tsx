@@ -10,7 +10,7 @@ interface Props {
 export const ToDoForm: FC<Props> = memo(({ addItem, clearAll, label, setLabel }) => {
     const onChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         setLabel(event.target.value);
-    }, []);
+    }, [setLabel]);
     const onSubmit = useCallback((event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         event.stopPropagation();

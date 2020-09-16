@@ -11,7 +11,7 @@ export const ToDoListPage: FC = memo(() => {
         setItems(items.concat({ id: items.length + 1, isComplete: false, label }));
         setLabel('');
     }, [items, label]);
-    const clearAll = useCallback(() => setItems([]), []);
+    const clearAll = useCallback(() => setItems([]), [setItems]);
     const onItemClick = useCallback((id) => {
         setItems(items.map(item => {
             if (id === item.id) {

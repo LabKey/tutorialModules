@@ -11,7 +11,7 @@ interface ToDoItemProps {
 const ToDoItem: FC<ToDoItemProps> = memo(({ item, onItemClick }) => {
     const { isComplete, id, label } = item;
     const onClick = useCallback(() => onItemClick(id), [id, onItemClick]);
-    const inputId = `todo-item-${id}`
+    const inputId = `todo-item-${id}`;
 
     return (
         <li className="todo-item">
