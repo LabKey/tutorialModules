@@ -15,7 +15,7 @@ const ToDoItem: FC<ToDoItemProps> = memo(({ item, onItemClick }) => {
 
     return (
         <li className="todo-item">
-            <input id={inputId} checked={isComplete} type="checkbox" onClick={onClick}/>
+            <input checked={isComplete} id={inputId} onClick={onClick} readOnly type="checkbox" />
             <label htmlFor={inputId}>{id} - {label}</label>
         </li>
     );
@@ -32,16 +32,12 @@ export const ToDoList: FC<ToDoListProps> = memo(({ items, onItemClick }) => {
 
     return (
         <div className="todo-list-wrapper panel panel-default">
-            <div className="panel-heading">
-                To-Dos for {getServerContext().user.displayName}
-            </div>
+            <div className="panel-heading">To-Dos for {getServerContext().user.displayName}</div>
 
             <div className="panel-body">
                 <p>To-Do:</p>
 
-                {incompleteItems.length === 0 && (
-                    <p>All To-Dos complete!</p>
-                )}
+                {incompleteItems.length === 0 && <p>All To-Dos complete!</p>}
 
                 <ul className="todo-list">
                     {incompleteItems.map((item) => <ToDoItem item={item} key={item.id} onItemClick={onItemClick} />)}

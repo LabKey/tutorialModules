@@ -8,15 +8,10 @@ export const ToDoListPage: FC = memo(() => {
     const [items, setItems] = useState<Item[]>([]);
     const [label, setLabel] = useState<string>('');
     const addItem = useCallback(() => {
-        console.log('calling add item');
-        setItems(items.concat({
-            id: items.length + 1,
-            isComplete: false,
-            label,
-        }));
+        setItems(items.concat({ id: items.length + 1, isComplete: false, label }));
         setLabel('');
     }, [items, label]);
-    const clearAll = useCallback(() => setItems([]), [items]);
+    const clearAll = useCallback(() => setItems([]), []);
     const onItemClick = useCallback((id) => {
         setItems(items.map(item => {
             if (id === item.id) {

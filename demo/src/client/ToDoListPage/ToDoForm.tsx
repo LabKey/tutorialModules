@@ -3,7 +3,7 @@ import React, { FC, memo, useCallback, ChangeEvent } from 'react';
 interface Props {
     label: string;
     setLabel: (label: string) => void;
-    addItem: (label: string) => void;
+    addItem: () => void;
     clearAll: () => void;
 }
 
@@ -14,11 +14,8 @@ export const ToDoForm: FC<Props> = memo(({ addItem, clearAll, label, setLabel })
     const onSubmit = useCallback((event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         event.stopPropagation();
-        addItem(label);
-    }, [addItem, label]);
-    const onClick = useCallback(() => {
-        addItem(label);
-    }, [addItem, label]);
+        addItem();
+    }, [addItem]);
 
     return (
         <div className="panel panel-primary">
@@ -30,14 +27,16 @@ export const ToDoForm: FC<Props> = memo(({ addItem, clearAll, label, setLabel })
                 <form className="todo-form" onSubmit={onSubmit}>
                     <input
                         className="form-control"
-                        type="text"
-                        placeholder="Enter a To-Do"
                         onChange={onChange}
+                        placeholder="Enter a To-Do"
+                        type="text"
                         value={label}
                     />
-                    <button className="btn labkey-button primary" onClick={onClick} type="button">
+
+                    <button className="btn labkey-button primary" onClick={addItem} type="button">
                         Add Item
                     </button>
+
                     <button className="btn btn-default" onClick={clearAll} type="button">
                         Clear All
                     </button>

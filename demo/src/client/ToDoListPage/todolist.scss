@@ -11,7 +11,7 @@
   margin: 0 0 10px 0;
   padding: 0;
 }
-.todo-list.todo-list--completed .todo-item {
+.todo-list.todo-list--completed label {
   text-decoration: line-through;
 }
 .todo-item label,
