@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
-import {AppContainer} from 'react-hot-loader'
-
-import {App} from './ToDoListPage'
+import { ToDoListPage } from './ToDoListPage'
 
 const render = () => {
     ReactDOM.render(
         <AppContainer>
-            <App/>
+            <ToDoListPage />
         </AppContainer>,
         document.getElementById('app')
     )
