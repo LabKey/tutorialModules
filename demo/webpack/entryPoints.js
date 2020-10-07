@@ -14,5 +14,11 @@ module.exports = {
         title: 'To-Do List Page',
         permission: 'insert',
         path: './src/client/ToDoListPage'
+    },{
+        name: 'demoWebpart',
+        title: 'To-Do List Webpart',
+        permission: 'read',
+        path: './src/client/ToDoListPage/webpart',
+        generateViewHTML: false,
     }]
 };

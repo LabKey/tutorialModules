@@ -26,26 +26,31 @@ for (let i = 0; i < entryPoints.apps.length; i++) {
         }),
         new HtmlWebpackPlugin({
             inject: false,
-            filename: '../../../views/' + entryPoint.name + '.html',
-            template: 'webpack/app.template.html'
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
             mode: 'dev',
             name: entryPoint.name,
             title: entryPoint.title,
             permission: entryPoint.permission,
             filename: '../../../views/' + entryPoint.name + 'Dev.view.xml',
             template: 'webpack/app.view.template.xml'
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            mode: 'dev',
-            name: entryPoint.name,
-            filename: '../../../views/' + entryPoint.name + 'Dev.html',
-            template: 'webpack/app.template.html'
         })
     ]);
+
+    if (entryPoint.generateViewHTML !== false) {
+        plugins = plugins.concat([
+            new HtmlWebpackPlugin({
+                inject: false,
+                filename: '../../../views/' + entryPoint.name + '.html',
+                template: 'webpack/app.template.html'
+            }),
+            new HtmlWebpackPlugin({
+                inject: false,
+                mode: 'dev',
+                name: entryPoint.name,
+                filename: '../../../views/' + entryPoint.name + 'Dev.html',
+                template: 'webpack/app.template.html'
+            })
+        ]);
+    }
 }
 
 plugins.push(new MiniCssExtractPlugin());

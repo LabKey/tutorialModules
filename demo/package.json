@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "setup": "npm ci",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --colors",
+    "build": "npm run build-prod",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack/dev.config.js",
-    "build-prod": "npm run build",
-    "clean": "rimraf resources/web/demo/gen && rimraf resources/views/*.*",
+    "build-prod": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --colors",
+    "clean": "rimraf resources/web/demo/gen && rimraf resources/views/helloWorld* && rimraf resources/views/todoList*",
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {

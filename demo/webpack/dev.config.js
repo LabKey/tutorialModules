@@ -30,6 +30,8 @@ let entries = {};
 for (let i = 0; i < entryPoints.apps.length; i++) {
     const entryPoint = entryPoints.apps[i];
 
+    if (entryPoint.generateViewHTML === false) continue;
+
     entries[entryPoint.name] = [
         // activate HMR for React
         'react-hot-loader/patch',
