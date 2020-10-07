@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-import { ToDoListPage } from './ToDoListPage'
+import { ToDoListPage } from './ToDoListPage';
 
 const render = () => {
     ReactDOM.render(

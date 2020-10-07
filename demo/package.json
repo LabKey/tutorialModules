@@ -1,9 +1,9 @@
 {
   "name": "demo",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "setup": "npm install",
+    "setup": "npm ci",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --colors",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack/dev.config.js",
     "build-prod": "npm run build",
