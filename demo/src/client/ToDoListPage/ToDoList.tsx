@@ -27,6 +27,7 @@ interface ToDoListProps {
 }
 
 export const ToDoList: FC<ToDoListProps> = memo(({ items, onItemClick }) => {
+    const hasItems = items.length !== 0;
     const completedItems = items.filter(i => i.isComplete);
     const incompleteItems = items.filter(i => !i.isComplete);
 
@@ -37,17 +38,22 @@ export const ToDoList: FC<ToDoListProps> = memo(({ items, onItemClick }) => {
             <div className="panel-body">
                 <p>To-Do:</p>
 
-                {incompleteItems.length === 0 && <p>All To-Dos complete!</p>}
+                {!hasItems && <p>Add a To-Do to your list.</p>}
+                {hasItems && incompleteItems.length === 0 && <p>All To-Dos complete!</p>}
 
                 <ul className="todo-list">
-                    {incompleteItems.map((item) => <ToDoItem item={item} key={item.id} onItemClick={onItemClick} />)}
+                    {incompleteItems.map(item => <ToDoItem item={item} key={item.id} onItemClick={onItemClick} />)}
                 </ul>
 
-                <p>Completed:</p>
-                
-                <ul className="todo-list todo-list--completed">
-                    {completedItems.map((item) => <ToDoItem item={item} key={item.id} onItemClick={onItemClick} />)}
-                </ul>
+                {completedItems.length > 0 && (
+                    <>
+                        <p>Completed:</p>
+
+                        <ul className="todo-list todo-list--completed">
+                            {completedItems.map(item => <ToDoItem item={item} key={item.id} onItemClick={onItemClick} />)}
+                        </ul>
+                    </>
+                )}
             </div>
         </div>
     );

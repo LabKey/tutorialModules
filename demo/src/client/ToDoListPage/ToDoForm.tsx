@@ -1,10 +1,10 @@
 import React, { FC, memo, useCallback, ChangeEvent } from 'react';
 
 interface Props {
-    label: string;
-    setLabel: (label: string) => void;
     addItem: () => void;
     clearAll: () => void;
+    label: string;
+    setLabel: (label: string) => void;
 }
 
 export const ToDoForm: FC<Props> = memo(({ addItem, clearAll, label, setLabel }) => {
