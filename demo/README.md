@@ -7,22 +7,25 @@ including keeping the standard LabKey header and header menus.
 Clone the tutorialModules repo into `/server/modules` directory and add the directory in `settings.gradle`.  You can then build this module 
 using the [LabKey Gradle build]. This will install necessary packages, generate resources and put resources in correct LabKey module's directories.
 
-There are two example React pages at
+There are two example React pages:
 - http://localhost:8080/labkey/home/demo-helloWorld.view?
 - http://localhost:8080/labkey/home/demo-todoList.view?
+
+Also, this module has an example of using the todoList page in a LabKey webpart.
 
 <a name="functionality"></a>
 # Functionality Overview
 The compilation and packaging of this module, including the NPM/webpack build, is done with the standard LabKey Gradle build. 
-Gradle will use the Node and NPM version defined in \<projectHome\>/gradle.properties to run the `build-prod` script defined in package.json.
+Gradle will use the Node and NPM version defined in `\<projectHome\>/gradle.properties` to run the `build-dev` script defined in package.json.
 Note: Gradle does not install Node/NPM globally. To run NPM commands outside of Gradle you will need to have Node/NPM installed 
-locally. For more information on what "scripts" the LabKey Gradle build expects from the module package.json file, 
+locally. For more information on what `scripts` the LabKey Gradle build expects from the module package.json file, 
 see the [Node.js Build Dependency] documentation page.
 
-The webpack production build will compile TypeScript and JavaScript files, as well as CSS and SCSS files, and bundle them independently 
-for each webpack entry point.  The bundled resources will be placed in the appropriate LabKey directory for web resources.  The production build will also 
-generate the necessary LabKey HTML files, including the containing elements for the React apps, as well as the necessary view.xml files 
-to make the bundled React and CSS files available to the appropriate LabKey React pages.
+The webpack build will compile TypeScript and JavaScript files, as well as CSS and SCSS files, and bundle them independently 
+for each module entry point, see example at `demo/src/client/entryPoints.js`.  The bundled resources will be placed in the 
+appropriate LabKey directory for web resources, see example at `resources/web/demo/gen/`.  The build will also 
+generate the necessary LabKey HTML files, including the containing elements for the React apps, as well as the necessary 
+`view.xml` files to make the bundled React and CSS files available to the appropriate LabKey React pages, see example at `resources/views/`.
 
 <a name="devServer"></a>
 ## Development Server
