@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@labkey/api": "1.1.1",
-    "@labkey/build": "0.0.1-fb-labkeyBuildPackage.5",
+    "@labkey/build": "0.0.1-fb-labkeyBuildPackage.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
