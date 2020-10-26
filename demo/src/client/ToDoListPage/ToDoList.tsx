@@ -38,7 +38,7 @@ export const ToDoList: FC<ToDoListProps> = memo(({ items, onItemClick }) => {
             <div className="panel-body">
                 <p>To-Do:</p>
 
-                {!hasItems && <p>Add a To-Do to your list.</p>}
+                {!hasItems && <p className="todo-empty">Add a To-Do to your list.</p>}
                 {hasItems && incompleteItems.length === 0 && <p>All To-Dos complete!</p>}
 
                 <ul className="todo-list">

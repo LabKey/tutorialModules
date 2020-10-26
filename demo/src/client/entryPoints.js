@@ -19,6 +19,6 @@ module.exports = {
         title: 'To-Do List Webpart',
         permission: 'read',
         path: './src/client/ToDoListPage/webpart',
-        generateViewHTML: false,
+        generateLib: true // used by views/demoWebpart.html
     }]
 };

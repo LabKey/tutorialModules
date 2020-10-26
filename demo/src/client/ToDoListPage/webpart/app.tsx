@@ -4,6 +4,6 @@ import { App } from '@labkey/api';
 
 import { ToDoListPage } from '../ToDoListPage';
 
-App.registerApp('demoWebpart', target => {
+App.registerApp<any>('demoWebpart', target => {
     ReactDOM.render(<ToDoListPage />, document.getElementById(target));
 });
