@@ -22,7 +22,7 @@
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
     "@hot-loader/react-dom": "16.13.0",
-    "@labkey/build": "0.1.0-fb-webpackEnvVarForLink.0",
+    "@labkey/build": "0.2.0",
     "@types/enzyme": "3.10.7",
     "@types/jest": "26.0.14",
     "@types/react": "16.9.51",
