@@ -9,6 +9,7 @@
     "types": ["jest"] // implicitly include only jest types; otherwise get those included via import
   },
   "exclude": [
+    "node_modules",
     "resources"
   ]
 }
