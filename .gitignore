@@ -1,13 +1,4 @@
 
 demo/node_modules
 demo/resources/web/demo/gen
-demo/resources/views/demoWebpart.view.xml
-demo/resources/views/demoWebpartDev.view.xml
-demo/resources/views/helloWorld.html
-demo/resources/views/helloWorld.view.xml
-demo/resources/views/helloWorldDev.html
-demo/resources/views/helloWorldDev.view.xml
-demo/resources/views/todoList.html
-demo/resources/views/todoList.view.xml
-demo/resources/views/todoListDev.html
-demo/resources/views/todoListDev.view.xml
+demo/resources/views/gen
