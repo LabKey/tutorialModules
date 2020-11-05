@@ -1,4 +1,7 @@
-
+# generated artifacts
 demo/node_modules
 demo/resources/web/demo/gen
 demo/resources/views/gen
+
+# Gradle
+.gradle
