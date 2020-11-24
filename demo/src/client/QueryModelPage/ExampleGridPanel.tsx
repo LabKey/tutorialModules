@@ -33,6 +33,7 @@ class ExampleGridPanelImpl extends PureComponent<Props> {
     };
 
     render() {
+        // Note that queryModels and actions come from InjectedQueryModels via withQueryModels
         const { queryModels, actions, title, asPanel } = this.props;
         const { containersModel } = queryModels;
 
@@ -52,6 +53,6 @@ class ExampleGridPanelImpl extends PureComponent<Props> {
 
 // Next wrap your component with withQueryModels, here we set the type
 // to OwnProps so the returned component, ExampleGridPanel, can
-// be used in a type safe manner. In this case, if the user forgets to
-// pass in a title we'll get a compiler error as intended.
+// be used in a type-safe manner. In this case, if the user forgets to
+// pass in a title or the asPanel property, we'll get a compiler error as intended.
 export const ExampleGridPanel = withQueryModels<OwnProps>(ExampleGridPanelImpl);
