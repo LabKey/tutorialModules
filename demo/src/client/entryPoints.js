@@ -20,5 +20,10 @@ module.exports = {
         permission: 'read',
         path: './src/client/ToDoListPage/webpart',
         generateLib: true // used by views/demoWebpart.html
+    },{
+        name: 'queryModel',
+        title: 'QueryModel Example Page',
+        permission: 'read',
+        path: './src/client/QueryModelPage'
     }]
 };
