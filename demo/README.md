@@ -7,11 +7,16 @@ including keeping the standard LabKey header and header menus.
 Clone the tutorialModules repo into `/server/modules` directory and add the directory in `settings.gradle`.  You can then build this module 
 using the [LabKey Gradle build]. This will install necessary packages, generate resources and put resources in correct LabKey module's directories.
 
-There are two example React pages:
+There are three example React pages:
 - http://localhost:8080/labkey/home/demo-helloWorld.view?
+- http://localhost:8080/labkey/home/demo-queryModel.view?
 - http://localhost:8080/labkey/home/demo-todoList.view?
 
 Also, this module has an example of using the todoList page in a LabKey webpart.
+
+One of the example React pages, `demo-queryModel.view`, has example usages of components from 
+the LabKey React shared component library, `@labkey/components`. You can see more details and 
+documentation regarding these shared components from the [Public API doc] page.
 
 <a name="functionality"></a>
 # Functionality Overview
@@ -35,6 +40,7 @@ to allow updates made to TypeScript, JavaScript, CSS and SCSS files to take effe
 start the server, from the command line in the demo module directory run `npm start`, then navigate to either of the appropriate development 
 pages (note the "Dev" added to the end of the action name).
 - http://localhost:8080/labkey/home/demo-helloWorldDev.view?
+- http://localhost:8080/labkey/home/demo-queryModelDev.view?
 - http://localhost:8080/labkey/home/demo-todoListDev.view?
 
 <a name="jest"></a>
@@ -45,3 +51,4 @@ Jest snapshot in the HelloWorld module.  Jest tests can be run using `npm run te
     
 [LabKey Gradle build]: https://www.labkey.org/Documentation/wiki-page.view?name=gradleBuild   
 [Node.js Build Dependency]: https://www.labkey.org/Documentation/wiki-page.view?name=nodejs 
+[Public API doc]: https://github.com/LabKey/labkey-ui-components/blob/master/packages/components/docs/public.md 
