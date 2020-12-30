@@ -32,10 +32,10 @@ import org.labkey.demo.model.DemoManager;
 import org.labkey.demo.model.Person;
 import org.labkey.demo.view.DemoWebPart;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -50,7 +50,7 @@ public class DemoModule extends DefaultModule
     @Override
     public @Nullable Double getSchemaVersion()
     {
-        return 20.000;
+        return 21.000;
     }
 
     @Override
@@ -63,18 +63,20 @@ public class DemoModule extends DefaultModule
     @NotNull
     protected Collection<WebPartFactory> createWebPartFactories()
     {
-        return new ArrayList<>(Collections.singletonList(new BaseWebPartFactory("Demo Summary", WebPartFactory.LOCATION_BODY, WebPartFactory.LOCATION_RIGHT)
-        {
+        return List.of(
+            new BaseWebPartFactory("Demo Summary", WebPartFactory.LOCATION_BODY, WebPartFactory.LOCATION_RIGHT)
             {
-                addLegacyNames("Narrow Demo Summary");
-            }
+                {
+                    addLegacyNames("Narrow Demo Summary");
+                }
 
-            @Override
-            public WebPartView getWebPartView(@NotNull ViewContext portalCtx, @NotNull Portal.WebPart webPart)
-            {
-                return new DemoWebPart();
+                @Override
+                public WebPartView<?> getWebPartView(@NotNull ViewContext portalCtx, @NotNull Portal.WebPart webPart)
+                {
+                    return new DemoWebPart();
+                }
             }
-        }));
+        );
     }
 
     @Override
