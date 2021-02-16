@@ -27,7 +27,7 @@ export const FileAttachmentPanel: FC<Props> = memo((props) => {
                 className='panel panel-default'
                 expanded={true}
                 onToggle={function () {
-                }} // this is added to suppress JS warning about providing an expanded prop without onToggle
+                }}
             >
                 <div className='bg-primary'>
                     <Panel.Heading>

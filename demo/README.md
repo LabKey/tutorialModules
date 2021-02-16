@@ -11,6 +11,8 @@ There are three example React pages:
 - http://localhost:8080/labkey/home/demo-helloWorld.view?
 - http://localhost:8080/labkey/home/demo-queryModel.view?
 - http://localhost:8080/labkey/home/demo-todoList.view?
+- http://localhost:8080/labkey/home/demo-fileAttachmentForm.view?
+- http://localhost:8080/labkey/home/demo-viewUploadedFiles.view?
 
 Also, this module has an example of using the todoList page in a LabKey webpart.
 

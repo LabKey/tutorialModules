@@ -1,8 +1,9 @@
-import {FileAttachmentModel} from "./models";
-import {uploadWebDavFile} from "@labkey/components";
+import {FileAttachmentModel, SavedFileModel} from "./models";
+import {getWebDavFiles, uploadWebDavFile, WebDavFile} from "@labkey/components";
 import { ActionURL } from "@labkey/api";
+import {MY_ATTACHMENTS_DIR} from "./constants";
 
-//Uploads files to the server using WebDav api
+//Uploads files to the server using WebDav api.
 export async function uploadMyAttachmentsToServer(model: FileAttachmentModel): Promise<any> {
     return new Promise((resolve, reject) => {
 
@@ -10,14 +11,12 @@ export async function uploadMyAttachmentsToServer(model: FileAttachmentModel): P
         if (model.filesToUpload?.size === 0) {
             resolve(model.filesToUpload);
         }
-
-        const dir = "MyAttachmentsDir";
         const uploadedFiles = Array<string>();
 
         model.filesToUpload.map((fileToUpload) => {
 
             if (fileToUpload) {
-                uploadWebDavFile(fileToUpload, ActionURL.getContainer(), dir, true)
+                uploadWebDavFile(fileToUpload, ActionURL.getContainer(), MY_ATTACHMENTS_DIR, true)
                     .then((name: string) => {
                         uploadedFiles.push(name);
                         if (uploadedFiles.length ===  model.filesToUpload.size) {
@@ -29,5 +28,30 @@ export async function uploadMyAttachmentsToServer(model: FileAttachmentModel): P
                     });
             }
         }, this);
+    });
+}
+
+// Gets file(s) previously uploaded to the server using WebDav api
+export async function getUploadedFiles(container: string, directory?: string, includeSubdirectories?: boolean): Promise<Array<SavedFileModel>> {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const webDavFilesResponse = await getWebDavFiles(container, directory, includeSubdirectories);
+
+            // Note: you can return other properties of the WebDavFile, below only returns file name & href
+            const displayFiles = webDavFilesResponse.get('files').valueSeq().map((file: WebDavFile) => {
+                return {fileName: file.name, href: file.href};
+            });
+            resolve(displayFiles.toArray());
+
+        } catch (response) {
+            let msg = `Unable to load files in ${(directory ? directory : 'root')}`;
+            if (response) {
+                msg += `: ${response}`;
+                reject(msg);
+            }
+            else {
+                resolve(Array<SavedFileModel>());
+            }
+        }
     });
 }
