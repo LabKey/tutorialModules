@@ -44,6 +44,8 @@ pages (note the "Dev" added to the end of the action name).
 - http://localhost:8080/labkey/home/demo-helloWorldDev.view?
 - http://localhost:8080/labkey/home/demo-queryModelDev.view?
 - http://localhost:8080/labkey/home/demo-todoListDev.view?
+- http://localhost:8080/labkey/home/demo-fileAttachmentFormDev.view?
+- http://localhost:8080/labkey/home/demo-viewUploadedFilesDev.view?
 
 <a name="jest"></a>
 ## Jest Tests
