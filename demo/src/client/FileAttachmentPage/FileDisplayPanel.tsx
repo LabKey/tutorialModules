@@ -1,10 +1,10 @@
-import React, {FC, memo, useCallback, useEffect, useState} from 'react';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Panel } from 'react-bootstrap';
-import {MY_ATTACHMENTS_DIR} from "./constants";
-import {Draft, produce} from "immer";
+import { MY_ATTACHMENTS_DIR } from "./constants";
+import { Draft, produce } from "immer";
 import { ActionURL } from "@labkey/api";
-import {FileAttachmentModel, SavedFileModel} from "./models";
-import {getUploadedFiles} from "./actions";
+import { FileAttachmentModel, SavedFileModel } from "./models";
+import { getUploadedFiles } from "./actions";
 
 export const App : FC = memo(() => {
 

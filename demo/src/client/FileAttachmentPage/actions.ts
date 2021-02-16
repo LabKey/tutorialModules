@@ -1,7 +1,7 @@
-import {FileAttachmentModel, SavedFileModel} from "./models";
-import {getWebDavFiles, uploadWebDavFile, WebDavFile} from "@labkey/components";
+import { FileAttachmentModel, SavedFileModel } from "./models";
+import { getWebDavFiles, uploadWebDavFile, WebDavFile } from "@labkey/components";
 import { ActionURL } from "@labkey/api";
-import {MY_ATTACHMENTS_DIR} from "./constants";
+import { MY_ATTACHMENTS_DIR } from "./constants";
 
 //Uploads files to the server using WebDav api.
 export async function uploadMyAttachmentsToServer(model: FileAttachmentModel): Promise<any> {

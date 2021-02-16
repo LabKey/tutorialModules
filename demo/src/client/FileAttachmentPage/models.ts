@@ -1,5 +1,5 @@
-import {immerable} from "immer";
-import {Map} from "immutable";
+import { immerable } from "immer";
+import { Map } from "immutable";
 
 export class FileAttachmentModel {
     [immerable] = true;
