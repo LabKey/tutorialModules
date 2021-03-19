@@ -6,8 +6,8 @@
     "setup": "npm ci",
     "build": "npm run build-dev",
     "start": "cross-env NODE_ENV=development LK_MODULE_CONTAINER=tutorialModules LK_MODULE=demo webpack serve --config node_modules/@labkey/build/webpack/watch.config.js",
-    "build-dev": "npm run clean && cross-env NODE_ENV=development LK_MODULE_CONTAINER=tutorialModules LK_MODULE=demo webpack --config node_modules/@labkey/build/webpack/dev.config.js",
-    "build-prod": "npm run clean && cross-env NODE_ENV=production PROD_SOURCE_MAP=source-map LK_MODULE_CONTAINER=tutorialModules LK_MODULE=demo webpack --config node_modules/@labkey/build/webpack/prod.config.js --progress --profile",
+    "build-dev": "npm run clean && cross-env NODE_ENV=development LK_MODULE_CONTAINER=tutorialModules LK_MODULE=demo webpack --config node_modules/@labkey/build/webpack/dev.config.js --color",
+    "build-prod": "npm run clean && cross-env NODE_ENV=production PROD_SOURCE_MAP=source-map LK_MODULE_CONTAINER=tutorialModules LK_MODULE=demo webpack --config node_modules/@labkey/build/webpack/prod.config.js --color --progress --profile",
     "clean": "rimraf resources/web/demo/gen && rimraf resources/views/gen && rimraf resources/views/helloWorld* && rimraf resources/views/todoList*",
     "test": "cross-env NODE_ENV=test jest"
   },
