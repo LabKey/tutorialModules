@@ -29,4 +29,3 @@ dependencies
             implementation "org.labkey.api:issues:${labkeyVersion}" // An example of declaring a dependency on the API jar for a module
             external "commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}" // An external dependency to be included in the module's lib directory
         }
-
