@@ -1,17 +1,12 @@
 // This is a sample gradle file for creating a stand-alone Java module that can be deployed in a LabKey server
-// instance.  This file assumes the module layout described in the LabKey documentation
+// instance.  This file applies some of the LabKey Gradle plugins and thus assumes the module layout described 
+// in the LabKey documentation
 // (https://labkey.org/Documentation/wiki-page.view?name=moduleDirectoryStructures)
-// but, for simplicity, does not include JSP files that would be compiled and collected into a JSP jar file
+// For simplicity, the source code does not include JSP files that would be compiled and collected into a JSP jar file
 // or XSD files that would be transformed into XMLBeans objects and include in the main jar.
 //
 // You can refer to the gradlePlugins source code (https://github.com/LabKey/gradlePlugin) for more details on the
 // full build process implemented for modules within the LabKey source tree.  
-//
-// Also for simplicity, this example deliberately does not use the LabKey Gradle plugins, but if your module 
-// has JSPs or other client-side code and XMLBeans you may want to consider using these plugins.  You will
-// need to add a dependency on the plugins (see the settings.gradle file in LabKey Server's root enlistment)
-// and then apply the appropriate plugins, probably most simply the 'org.labkey.module' plugin, which, in turn,
-// will apply, for example, the JSP and NpmRun plugins, among others.
 //
 // Then run the command
 //     ./gradlew module
@@ -20,154 +15,18 @@
 //
 // See the Gradle documentation for more information (https://docs.gradle.org).
 //
-import java.util.regex.Matcher
-import java.util.regex.Pattern
+import org.labkey.gradle.util.BuildUtils
 
-apply plugin: 'java'
-
-project.version="20.7-SNAPSHOT"
-
-ext {
-    // The following are convenience variables for the various output directories used below
-    explodedModuleDir = "${project.buildDir}/explodedModule"
-    libDir = "${explodedModuleDir}/lib"
-    configDir = "${explodedModuleDir}/config"
+plugins {
+    // This plugin brings in the standard tasks for building a LabKey module that may include JSPs, XSDs, or npm builds
+    id 'org.labkey.build.module'
 }
 
-repositories
-        {
-            // Use this repository when relying on release versions of the LabKey artifacts and their external dependencies
-            maven {
-                url "${project.artifactoryContextUrl}/libs-release"
-            }
-            // Use this repository when relying on snapshot versions of LabKey artifacts or requiring snapshot external dependencies
-            maven {
-                url "${project.artifactoryContextUrl}/libs-snapshot"
-            }
-            jcenter() // include the bintray/jcenter repository separately in case lookup with previous repository fails
-        }
-
-configurations
-        {
-            external // Define a configuration for use in specifying which libraries should be included in the module's lib directory
-            implementation.extendsFrom(external)
-        }
+project.version="0.0.1-SNAPSHOT" // this can use your own versioning scheme
 
 dependencies
         {
-            implementation "org.labkey.api:internal:${labkeyVersion}" // Dependency on the api jar file for internal module
             implementation "org.labkey.api:issues:${labkeyVersion}" // An example of declaring a dependency on the API jar for a module
-            implementation "org.labkey.api:labkey-client-api:${labkeyClientApiVersion}" // Dependency on the LabKey client api
             external "commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}" // An external dependency to be included in the module's lib directory
-         }
-
-
-project.sourceSets
-        {
-            main { // source files for the main Jar file
-                java {
-                    srcDirs = ['src']
-                }
-            }
-            module {
-                resources { // resources to be included in the module Jar file
-                    srcDirs = ['resources']
-                }
-                output.resourcesDir = explodedModuleDir
-            }
-            api { // source files for the api Jar file
-                java {
-                    srcDirs = ['api-src']
-                }
-            }
-            // use this if you have a spring configuration file in your project
-            spring {
-                resources {
-                    srcDirs = ["webapp/WEB-INF"]
-                }
-                output.resourcesDir = configDir
-            }
         }
-
-project.tasks.register("apiJar", Jar) {
-    Jar jar ->
-        jar.group = "Build"
-        jar.description = "produce jar file for api"
-        jar.from project.sourceSets.api.output
-        jar.archiveBaseName.set("${project.name}_api")
-        jar.destinationDirectory = project.file(libDir)
-        jar.dependsOn(project.apiClasses)
-}
-
-project.jar {
-    Jar jar ->
-        jar.archiveBaseName.set(project.name)
-        jar.destinationDirectory = project.file(libDir)
-        jar.dependsOn(project.tasks.apiJar)
-}
-
-project.tasks.register("copyExternalLibs", Copy) {
-    CopySpec copy ->
-        copy.group = "Build"
-        copy.description = "copy the dependencies declared in the 'external' configuration into the lib directory of the built module"
-        copy.from project.configurations.external
-        copy.into libDir
-}
-
-project.tasks.register('moduleXml') {
-    Task task ->
-        task.group = "Build"
-        task.description = "Create the module.xml file from the module.properties and module.template.xml files"
-        task.inputs.file(project.file("module.template.xml"))
-        task.inputs.file(project.file("module.properties"))
-        task.outputs.file(new File(configDir.toString(), "module.xml"))
-        task.doLast
-                {
-                    final Pattern PROPERTY_PATTERN = Pattern.compile("@@([^@]+)@@")
-
-                    Properties modProperties = new Properties()
-                    FileInputStream propertiesStream = new FileInputStream("module.properties")
-                    modProperties.load(propertiesStream)
-                    propertiesStream.close()
-
-                    InputStream is = new FileInputStream(new File("module.template.xml"))
-
-                    if (is == null) {
-                        throw new GradleException("Could not find template file 'module.template.xml'.")
-                    }
-
-                    project.mkdir(configDir)
-                    File moduleXmlFile = new File((String) configDir, "module.xml")
-                    OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(moduleXmlFile))
-
-                    is.readLines().each {
-                        String line ->
-                            Matcher matcher = PROPERTY_PATTERN.matcher(line)
-                            String newLine = line
-                            while (matcher.find()) {
-                                String property = (String) modProperties.get(matcher.group(1))
-                                newLine = newLine.replace(matcher.group(), property == null ? "" : property)
-                            }
-                            writer.println(newLine)
-                    }
-                    writer.close()
-                    is.close()
-                }
-
-}
-
-project.tasks.register("module", Jar) {
-    Jar jar ->
-        jar.group = "Build"
-        jar.description = "create the module file for this project"
-        jar.from explodedModuleDir
-        jar.archiveBaseName.set(project.name)
-        jar.archiveExtension.set('module')
-        jar.destinationDirectory = project.buildDir
-        jar.dependsOn(project.tasks.moduleXml)
-        jar.dependsOn(project.tasks.processModuleResources)
-        jar.dependsOn(project.tasks.copyExternalLibs)
-        jar.dependsOn(project.tasks.jar)
-        jar.dependsOn(project.tasks.processSpringResources)
-}
 
