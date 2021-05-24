@@ -19,6 +19,7 @@ buildscript {
     }
 }
 
+// This ensures that the module name is correct when cloned to a non-standard directory
 rootProject.name="standalone"
 
 gradle.beforeProject { project ->
@@ -31,6 +32,7 @@ gradle.beforeProject { project ->
             // Use this repository when relying on snapshot versions of LabKey artifacts or requiring snapshot external dependencies
             url "${project.artifactory_contextUrl}/libs-snapshot"
         }
+        // include Maven Central separately in case lookup with previous repository fails
         mavenCentral()
     }
 }
