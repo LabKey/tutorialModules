@@ -23,9 +23,11 @@
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-apply plugin: 'java'
+plugins {
+    id 'java'
+}
 
-project.version="20.7-SNAPSHOT"
+project.version="0.0.1-SNAPSHOT"
 
 ext {
     // The following are convenience variables for the various output directories used below
