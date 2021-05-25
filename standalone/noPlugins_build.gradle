@@ -1,20 +1,21 @@
 // This is a sample gradle file for creating a stand-alone Java module that can be deployed in a LabKey server
-// instance.  This file assumes the module layout described in the LabKey documentation
+// instance.  This file assumes the module layout described in the LabKey documentation.
 // (https://labkey.org/Documentation/wiki-page.view?name=moduleDirectoryStructures)
-// but, for simplicity, does not include JSP files that would be compiled and collected into a JSP jar file
+// For simplicity, the source code does not include JSP files that would be compiled and collected into a JSP jar file
 // or XSD files that would be transformed into XMLBeans objects and include in the main jar.
 //
 // You can refer to the gradlePlugins source code (https://github.com/LabKey/gradlePlugin) for more details on the
 // full build process implemented for modules within the LabKey source tree.  
 //
-// Also for simplicity, this example deliberately does not use the LabKey Gradle plugins, but if your module 
-// has JSPs or other client-side code and XMLBeans you may want to consider using these plugins.  You will
-// need to add a dependency on the plugins (see the settings.gradle file in LabKey Server's root enlistment)
-// and then apply the appropriate plugins, probably most simply the 'org.labkey.module' plugin, which, in turn,
-// will apply, for example, the JSP and NpmRun plugins, among others.
+// This example deliberately does not use the LabKey Gradle plugins. If your module has JSPs or other client-side code
+// and XMLBeans you may want to consider using these plugins.
+// You would add a dependency on the plugins and then apply the appropriate plugins, probably most simply the
+// 'org.labkey.build.module' plugin, which will apply the JSP and NpmRun plugins, among others.
+// The accompanying 'build.gradle' and 'settings.gradle' demonstrate that technique.
+// 
 //
-// Then run the command
-//     ./gradlew module
+// To build this module using this file, run:
+//     ./gradlew --build-file=noPlugins_build.gradle module
 // This will create a .module file for your project and deposit it in the build directory
 // for your standalone module.
 //
@@ -40,13 +41,13 @@ repositories
         {
             // Use this repository when relying on release versions of the LabKey artifacts and their external dependencies
             maven {
-                url "${project.artifactoryContextUrl}/libs-release"
+                url "${project.artifactory_contextUrl}/libs-release"
             }
             // Use this repository when relying on snapshot versions of LabKey artifacts or requiring snapshot external dependencies
             maven {
-                url "${project.artifactoryContextUrl}/libs-snapshot"
+                url "${project.artifactory_contextUrl}/libs-snapshot"
             }
-            jcenter() // include the bintray/jcenter repository separately in case lookup with previous repository fails
+            mavenCentral() // include the Maven Central repository separately in case lookup with previous repository fails
         }
 
 configurations

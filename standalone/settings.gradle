@@ -1,13 +1,12 @@
 buildscript {
     repositories {
+        mavenLocal()
+        // These repositories contain the LabKey gradle plugin
         maven {
             url "${artifactory_contextUrl}/plugins-release"
         }
-        if (gradlePluginsVersion.contains("SNAPSHOT")) {
-            mavenLocal()
-            maven {
-                url "${artifactory_contextUrl}/plugins-snapshot-local"
-            }
+        maven {
+            url "${artifactory_contextUrl}/plugins-snapshot-local"
         }
     }
     dependencies {

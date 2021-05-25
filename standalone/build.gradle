@@ -8,7 +8,7 @@
 // You can refer to the gradlePlugins source code (https://github.com/LabKey/gradlePlugin) for more details on the
 // full build process implemented for modules within the LabKey source tree.  
 //
-// Then run the command
+// To build this module, run:
 //     ./gradlew module
 // This will create a .module file for your project and deposit it in the build directory
 // for your standalone module.
@@ -18,7 +18,7 @@
 import org.labkey.gradle.util.BuildUtils
 
 plugins {
-    // This plugin brings in the standard tasks for building a LabKey module that may include JSPs, XSDs, or npm builds
+    // This plugin brings in the standard tasks for building a LabKey Java module that may include JSPs, XSDs, or npm builds
     id 'org.labkey.build.module'
 }
 
