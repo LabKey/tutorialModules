@@ -1,0 +1,31 @@
+// This is a sample gradle file for creating a stand-alone Java module that can be deployed in a LabKey server
+// instance.  This file applies some of the LabKey Gradle plugins and thus assumes the module layout described 
+// in the LabKey documentation
+// (https://labkey.org/Documentation/wiki-page.view?name=moduleDirectoryStructures)
+// For simplicity, the source code does not include JSP files that would be compiled and collected into a JSP jar file
+// or XSD files that would be transformed into XMLBeans objects and include in the main jar.
+//
+// You can refer to the gradlePlugins source code (https://github.com/LabKey/gradlePlugin) for more details on the
+// full build process implemented for modules within the LabKey source tree.  
+//
+// To build this module, run:
+//     ./gradlew module
+// This will create a .module file for your project and deposit it in the build directory
+// for your standalone module.
+//
+// See the Gradle documentation for more information (https://docs.gradle.org).
+//
+import org.labkey.gradle.util.BuildUtils
+
+plugins {
+    // This plugin brings in the standard tasks for building a LabKey Java module that may include JSPs, XSDs, or npm builds
+    id 'org.labkey.build.module'
+}
+
+project.version="0.0.1-SNAPSHOT" // this can use your own versioning scheme
+
+dependencies
+        {
+            implementation "org.labkey.api:issues:${labkeyVersion}" // An example of declaring a dependency on the API jar for a module
+            external "commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}" // An external dependency to be included in the module's lib directory
+        }
