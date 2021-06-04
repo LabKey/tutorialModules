@@ -16,6 +16,7 @@
 // See the Gradle documentation for more information (https://docs.gradle.org).
 //
 import org.labkey.gradle.util.BuildUtils
+import org.labkey.gradle.util.ExternalDependency
 
 plugins {
     // This plugin brings in the standard tasks for building a LabKey Java module that may include JSPs, XSDs, or npm builds
@@ -27,5 +28,18 @@ project.version="0.0.1-SNAPSHOT" // this can use your own versioning scheme
 dependencies
         {
             implementation "org.labkey.api:issues:${labkeyVersion}" // An example of declaring a dependency on the API jar for a module
-            external "commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}" // An external dependency to be included in the module's lib directory
+
+            // An external dependency to be included in the module's lib directory
+            BuildUtils.addExternalDependency(
+                    project,
+                    new ExternalDependency(
+                            "commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}",
+                            "Commons Beanutils",
+                            "Apache",
+                            "http://jakarta.apache.org/commons/beanutils/",
+                            ExternalDependency.APACHE_2_LICENSE_NAME,
+                            ExternalDependency.APACHE_2_LICENSE_URL,
+                            "Reading/writing beans"
+                    )
+            )
         }
