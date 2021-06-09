@@ -22,7 +22,8 @@ plugins {
     id 'org.labkey.build.module'
 }
 
-project.version="0.0.1-SNAPSHOT" // this can use your own versioning scheme
+// this can use your own versioning scheme
+// project.version="0.0.1-SNAPSHOT"
 
 dependencies
         {
