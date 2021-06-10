@@ -28,7 +28,7 @@ see the [Node.js Build Dependency] documentation page.
 
 The webpack build will compile TypeScript and JavaScript files, as well as CSS and SCSS files, and bundle them independently 
 for each module entry point. See the example at `demo/src/client/entryPoints.js`.  The bundled resources will be placed in the 
-appropriate LabKey directory for web resources. See the example at `resources/web/demo/gen/`.  The build will also 
+appropriate LabKey directory for web resources. See the example at `resources/web/gen/`.  The build will also 
 generate the necessary LabKey HTML files, including the containing elements for the React apps, as well as the necessary 
 `view.xml` files to make the bundled React and CSS files available to the appropriate LabKey React pages. 
 See the example at `resources/views/`.
