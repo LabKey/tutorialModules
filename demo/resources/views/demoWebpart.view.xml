@@ -3,6 +3,6 @@
         <permission name="read"/>
     </permissions>
     <dependencies>
-        <dependency path="demo/gen/demoWebpart"/>
+        <dependency path="gen/demoWebpart"/>
     </dependencies>
 </view>
