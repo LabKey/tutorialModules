@@ -21,6 +21,10 @@ buildscript {
 // This ensures that the module name is correct when cloned to a non-standard directory
 rootProject.name="standalone"
 
+if (!hasProperty("labkeyVersion")) {
+    throw new GradleException("Define 'labkeyVersion' in 'gradle.properties' to build outside of a standard LabKey enlistment")
+}
+
 gradle.beforeProject { project ->
     project.repositories {
         maven {

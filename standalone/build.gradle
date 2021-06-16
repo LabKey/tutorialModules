@@ -23,11 +23,13 @@ plugins {
     id 'org.labkey.build.module'
 }
 
-project.version="0.0.1-SNAPSHOT" // this can use your own versioning scheme
+// this can use your own versioning scheme
+// project.version="0.0.1-SNAPSHOT"
 
 dependencies
         {
-            implementation "org.labkey.api:issues:${labkeyVersion}" // An example of declaring a dependency on the API jar for a module
+            // An example of declaring a dependency on the API jar for a module
+            // implementation "org.labkey.api:issues:${labkeyVersion}"
 
             // An external dependency to be included in the module's lib directory
             BuildUtils.addExternalDependency(
