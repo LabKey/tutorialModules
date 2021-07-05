@@ -8,41 +8,36 @@ import { Panel } from 'react-bootstrap';
 interface Props {
     model: FileAttachmentModel;
     onInputChange: (model: FileAttachmentModel) => void;
+    onSaveBtnHandler: () => void;
 }
 
 // Functional component which would be rendered as part of the parent component
 export const FileAttachmentPanel: FC<Props> = memo((props) => {
-    const { model, onInputChange } = props;
+    const { model, onInputChange, onSaveBtnHandler } = props;
 
     const onFileChange = useCallback((files: Map<string, File>) => {
         const updatedModel = produce(model, (draft: Draft<FileAttachmentModel>) => {
             draft['filesToUpload'] = files;
         });
         onInputChange(updatedModel);
-
     }, [model, onInputChange]);
 
     return (
-            <Panel
-                className='panel panel-default'
-                expanded={true}
-                onToggle={function () {
-                }}
-            >
-                <div className='bg-primary'>
-                    <Panel.Heading>
-                        <div className='panel-title'>My File Attachments</div>
-                    </Panel.Heading>
+            <div className='panel panel-default'>
+                <div className='panel-heading'>
+                    My File Attachments
                 </div>
-                <Panel.Body>
+                <div className='panel-body'>
                     <FileAttachmentForm
                         acceptedFormats=".pdf, .jpg"
                         allowDirectories={false}
                         allowMultiple={true}
                         showLabel={false}
+                        showButtons={true}
+                        onSubmit={onSaveBtnHandler}
                         onFileChange={onFileChange}
                     />
-                </Panel.Body>
-            </Panel>
+                </div>
+            </div>
     );
 })

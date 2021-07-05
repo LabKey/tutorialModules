@@ -30,10 +30,5 @@ module.exports = {
         title: 'File Attachment Example Page',
         permission: 'insert',
         path: './src/client/FileAttachmentPage'
-    },{
-        name: 'viewUploadedFiles',
-        title: 'Display Uploaded Files Example Page',
-        permission: 'read',
-        path: './src/client/FileAttachmentPage/displayFiles'
     }]
 };

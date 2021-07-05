@@ -1,10 +1,11 @@
-import { FileAttachmentModel, SavedFileModel } from "./models";
-import { getWebDavFiles, uploadWebDavFile, WebDavFile } from "@labkey/components";
 import { ActionURL } from "@labkey/api";
+import { getWebDavFiles, uploadWebDavFile, WebDavFile } from "@labkey/components";
+
 import { MY_ATTACHMENTS_DIR } from "./constants";
+import { FileAttachmentModel, SavedFileModel } from "./models";
 
 //Uploads files to the server using WebDav api.
-export async function uploadMyAttachmentsToServer(model: FileAttachmentModel): Promise<any> {
+export function uploadMyAttachmentsToServer(model: FileAttachmentModel): Promise<any> {
     return new Promise((resolve, reject) => {
 
         // Nothing to do here
@@ -39,7 +40,7 @@ export async function getUploadedFiles(container: string, directory?: string, in
 
             // Note: you can return other properties of the WebDavFile, below only returns file name & href
             const displayFiles = webDavFilesResponse.get('files').valueSeq().map((file: WebDavFile) => {
-                return {fileName: file.name, href: file.href};
+                return new SavedFileModel({fileName: file.name, href: file.href});
             });
             resolve(displayFiles.toArray());
 

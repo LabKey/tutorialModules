@@ -13,34 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC, memo, useCallback, useEffect, useState } from 'react'
+import React, { FC, memo, useCallback, useState } from 'react'
+import { Alert } from "@labkey/components";
+
 import { FileAttachmentPanel } from "./FileAttachmentPanel";
+import { FileDisplayPanel } from './FileDisplayPanel';
 import { FileAttachmentModel } from "./models";
-import './fileAttachment.scss';
-import { ActionURL, getServerContext } from "@labkey/api";
 import { uploadMyAttachmentsToServer } from "./actions";
 
+import './fileAttachment.scss';
 
 export const App : FC = memo(() => {
-
     const [fileAttachmentModel, setFileAttachmentModel] = useState<FileAttachmentModel>(new FileAttachmentModel());
-
-    //equivalent to componentDidMount and componentDidUpdate
-    useEffect(() => {
-
-    }, []);
 
     const fileAttachmentChange = useCallback((model:FileAttachmentModel)=> {
         setFileAttachmentModel(model);
-    }, [fileAttachmentModel]);
+    }, [setFileAttachmentModel]);
 
-    const onSaveBtnHandler = useCallback((event) => {
-
+    const onSaveBtnHandler = useCallback(() => {
         uploadMyAttachmentsToServer(fileAttachmentModel)
             .then(r => {
                 if (r) {
-                    //Routes to home page. Users can view files uploaded via Files webpart.
-                    window.location.href = ActionURL.buildURL('project', 'begin', getServerContext().container.path)
+                    window.location.reload();
                 }
             })
             .catch(reject => {
@@ -50,14 +44,15 @@ export const App : FC = memo(() => {
 
     return (
         <>
-            <FileAttachmentPanel onInputChange={fileAttachmentChange} model={fileAttachmentModel}/>
+            <Alert bsStyle="info">Note: saving uploaded files will place them in the LabKey filesystem for this container.</Alert>
 
-            <button
-                className='btn btn-primary pull-right'
-                id='saveMyAttachments'
-                name='saveMyAttachments'
-                onClick={onSaveBtnHandler}>Save my attachments
-            </button>
+            <FileAttachmentPanel
+                model={fileAttachmentModel}
+                onInputChange={fileAttachmentChange}
+                onSaveBtnHandler={onSaveBtnHandler}
+            />
+
+            <FileDisplayPanel />
         </>
     )
 })

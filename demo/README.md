@@ -7,12 +7,11 @@ including keeping the standard LabKey header and header menus.
 Clone the tutorialModules repo into `/server/modules` directory and add the directory in `settings.gradle`.  You can then build this module 
 using the [LabKey Gradle build]. This will install necessary packages, generate resources and put resources in correct LabKey module's directories.
 
-There are three example React pages:
+The demo module includes the following example React pages:
 - http://localhost:8080/labkey/home/demo-helloWorld.view?
 - http://localhost:8080/labkey/home/demo-queryModel.view?
 - http://localhost:8080/labkey/home/demo-todoList.view?
 - http://localhost:8080/labkey/home/demo-fileAttachmentForm.view?
-- http://localhost:8080/labkey/home/demo-viewUploadedFiles.view?
 
 Also, this module has an example of using the todoList page in a LabKey webpart.
 
@@ -45,7 +44,6 @@ pages (note the "Dev" added to the end of the action name).
 - http://localhost:8080/labkey/home/demo-queryModelDev.view?
 - http://localhost:8080/labkey/home/demo-todoListDev.view?
 - http://localhost:8080/labkey/home/demo-fileAttachmentFormDev.view?
-- http://localhost:8080/labkey/home/demo-viewUploadedFilesDev.view?
 
 <a name="jest"></a>
 ## Jest Tests

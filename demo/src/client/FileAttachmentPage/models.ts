@@ -17,9 +17,6 @@ export class FileAttachmentModel {
 }
 
 export class SavedFileModel {
-    /**
-     * @hidden
-     */
     [immerable] = true;
 
     readonly href: string;
