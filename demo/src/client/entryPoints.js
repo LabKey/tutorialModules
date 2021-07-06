@@ -25,5 +25,10 @@ module.exports = {
         title: 'QueryModel Example Page',
         permission: 'read',
         path: './src/client/QueryModelPage'
+    },{
+        name: 'fileAttachmentForm',
+        title: 'File Attachment Example Page',
+        permission: 'insert',
+        path: './src/client/FileAttachmentPage'
     }]
 };
