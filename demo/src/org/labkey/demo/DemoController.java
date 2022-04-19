@@ -48,7 +48,6 @@ import org.labkey.api.view.NavTree;
 import org.labkey.api.view.RedirectException;
 import org.labkey.api.view.UpdateView;
 import org.labkey.api.view.ViewContext;
-import org.labkey.api.view.template.PageConfig;
 import org.labkey.demo.model.DemoManager;
 import org.labkey.demo.model.Person;
 import org.springframework.beans.MutablePropertyValues;
@@ -77,13 +76,6 @@ public class DemoController extends SpringActionController
     {
         setActionResolver(_actionResolver);
     }
-
-    @Override
-    public PageConfig defaultPageConfig()
-    {
-        return new PageConfig();
-    }
-
 
     @RequiresPermission(ReadPermission.class)
     public class BeginAction extends SimpleViewAction
