@@ -354,7 +354,7 @@ public class DemoController extends SpringActionController
 
         DisplayColumn col = rgn.getDisplayColumn("RowId");
         ActionURL updateURL = new ActionURL(UpdateAction.class, getContainer());
-        col.setURL(updateURL.toString() + "rowId=${RowId}");
+        col.setURL(updateURL.addParameter("rowId", "${RowId}"));
         col.setDisplayPermission(UpdatePermission.class);
 
         ButtonBar gridButtonBar = new ButtonBar();
