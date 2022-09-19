@@ -34,7 +34,7 @@ gradle.beforeProject { project ->
             url "${project.artifactory_contextUrl}/libs-release"
         }
         maven {
-            // Use this repository when relying on snapshot versions of LabKey artifacts or requiring snapshot external dependencies
+            // Use this repository when relying on snapshot versions of LabKey artifacts
             url "${project.artifactory_contextUrl}/libs-snapshot"
         }
     }
