@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "2.218.1-fb-modStartLinkFixin.0"
+    "@labkey/components": "2.218.2"
   },
   "devDependencies": {
     "@labkey/build": "6.2.0",
