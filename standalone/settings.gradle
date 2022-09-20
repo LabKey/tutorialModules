@@ -27,15 +27,15 @@ if (!hasProperty("labkeyVersion")) {
 
 gradle.beforeProject { project ->
     project.repositories {
+        // Maven Central first
+        mavenCentral()
         maven {
             // Use this repository when relying on release versions of the LabKey artifacts and their external dependencies
             url "${project.artifactory_contextUrl}/libs-release"
         }
         maven {
-            // Use this repository when relying on snapshot versions of LabKey artifacts or requiring snapshot external dependencies
+            // Use this repository when relying on snapshot versions of LabKey artifacts
             url "${project.artifactory_contextUrl}/libs-snapshot"
         }
-        // include Maven Central separately in case lookup with previous repository fails
-        mavenCentral()
     }
 }
