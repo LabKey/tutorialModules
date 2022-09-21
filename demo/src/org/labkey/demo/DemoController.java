@@ -17,7 +17,7 @@
 package org.labkey.demo;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONObject;
+import org.json.old.JSONObject;
 import org.labkey.api.action.FormArrayList;
 import org.labkey.api.action.FormViewAction;
 import org.labkey.api.action.ReadOnlyApiAction;
