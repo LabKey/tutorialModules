@@ -1,19 +1,23 @@
-import React, { FC, memo, useEffect, useState } from 'react';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Draft, produce } from "immer";
 import { ActionURL } from "@labkey/api";
-import { LoadingSpinner } from '@labkey/components';
+import { createWebDavDirectory, LoadingSpinner } from '@labkey/components';
 
 import { MY_ATTACHMENTS_DIR } from "./constants";
 import { FileAttachmentModel, SavedFileModel } from "./models";
 import { getUploadedFiles } from "./actions";
+import { CreateSubfolderModal } from './CreateSubfolderModal';
 
 export const FileDisplayPanel : FC = memo(() => {
     const [loading, setLoading] = useState<boolean>(true);
+    const [showCreateSubfolderModal, setShowCreateSubfolderModal] = useState<boolean>();
     const [fileAttachmentModel, setFileAttachmentModel] = useState<FileAttachmentModel>(new FileAttachmentModel());
 
     //equivalent to componentDidMount and componentDidUpdate
     useEffect(() => {
-        getUploadedFiles(ActionURL.getContainer(), MY_ATTACHMENTS_DIR, false)
+        if (!loading) return;
+
+        getUploadedFiles(ActionURL.getContainer(), MY_ATTACHMENTS_DIR, true)
             .then((files:Array<SavedFileModel>) => {
                 if (files?.length > 0) {
                     const updatedModel = produce(fileAttachmentModel, (draft: Draft<FileAttachmentModel>) => {
@@ -27,7 +31,29 @@ export const FileDisplayPanel : FC = memo(() => {
 
                 setLoading(false);
             });
+    }, [loading]);
+
+    const onCreateSubfolder = useCallback(() => {
+        setShowCreateSubfolderModal(true);
     }, []);
+
+    const closeCreateSubfolder = useCallback(() => {
+        setShowCreateSubfolderModal(false);
+    }, []);
+
+    const submitCreateSubfolder = useCallback((name: string) => {
+        let path = MY_ATTACHMENTS_DIR;
+        if (!name?.startsWith('/')) path = path + '/';
+        path = path + name;
+
+        createWebDavDirectory(ActionURL.getContainer(), path, true)
+            .then(() => {
+                // reset loading state to force refresh of panel savedFiles
+                setLoading(true);
+            });
+
+        closeCreateSubfolder();
+    }, [closeCreateSubfolder]);
 
     return (
         <div className='panel panel-default'>
@@ -52,7 +78,7 @@ export const FileDisplayPanel : FC = memo(() => {
                 {
                     !loading && !fileAttachmentModel.savedFiles && (
                         <p>
-                            No files to display. Use the panel above to upload files to this location.
+                            No files or subfolders to display. Use the panel above to upload files to this location.
                         </p>
                     )
                 }
@@ -63,8 +89,12 @@ export const FileDisplayPanel : FC = memo(() => {
                         })}>
                             Manage Files
                         </a>
+                        <a className='labkey-text-link' onClick={onCreateSubfolder}>
+                            Create Subfolder
+                        </a>
                     </p>
                 )}
+                {showCreateSubfolderModal && <CreateSubfolderModal close={closeCreateSubfolder} submit={submitCreateSubfolder} />}
             </div>
         </div>
     );
