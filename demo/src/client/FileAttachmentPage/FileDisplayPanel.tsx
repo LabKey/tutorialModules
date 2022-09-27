@@ -6,11 +6,11 @@ import { createWebDavDirectory, LoadingSpinner } from '@labkey/components';
 import { MY_ATTACHMENTS_DIR } from "./constants";
 import { FileAttachmentModel, SavedFileModel } from "./models";
 import { getUploadedFiles } from "./actions";
-import { CreateSubfolderModal } from './CreateSubfolderModal';
+import { CreateDirectoryModal } from './CreateDirectoryModal';
 
 export const FileDisplayPanel : FC = memo(() => {
     const [loading, setLoading] = useState<boolean>(true);
-    const [showCreateSubfolderModal, setShowCreateSubfolderModal] = useState<boolean>();
+    const [showCreateDirectoryModal, setShowCreateDirectoryModal] = useState<boolean>();
     const [fileAttachmentModel, setFileAttachmentModel] = useState<FileAttachmentModel>(new FileAttachmentModel());
 
     //equivalent to componentDidMount and componentDidUpdate
@@ -33,15 +33,15 @@ export const FileDisplayPanel : FC = memo(() => {
             });
     }, [loading]);
 
-    const onCreateSubfolder = useCallback(() => {
-        setShowCreateSubfolderModal(true);
+    const onCreateDirectory = useCallback(() => {
+        setShowCreateDirectoryModal(true);
     }, []);
 
-    const closeCreateSubfolder = useCallback(() => {
-        setShowCreateSubfolderModal(false);
+    const closeCreateDirectory = useCallback(() => {
+        setShowCreateDirectoryModal(false);
     }, []);
 
-    const submitCreateSubfolder = useCallback((name: string) => {
+    const submitCreateDirectory = useCallback((name: string) => {
         let path = MY_ATTACHMENTS_DIR;
         if (!name?.startsWith('/')) path = path + '/';
         path = path + name;
@@ -52,8 +52,8 @@ export const FileDisplayPanel : FC = memo(() => {
                 setLoading(true);
             });
 
-        closeCreateSubfolder();
-    }, [closeCreateSubfolder]);
+        closeCreateDirectory();
+    }, [closeCreateDirectory]);
 
     return (
         <div className='panel panel-default'>
@@ -78,7 +78,7 @@ export const FileDisplayPanel : FC = memo(() => {
                 {
                     !loading && !fileAttachmentModel.savedFiles && (
                         <p>
-                            No files or subfolders to display. Use the panel above to upload files to this location.
+                            No files or directories to display. Use the panel above to upload files to this location.
                         </p>
                     )
                 }
@@ -89,12 +89,12 @@ export const FileDisplayPanel : FC = memo(() => {
                         })}>
                             Manage Files
                         </a>
-                        <a className='labkey-text-link' onClick={onCreateSubfolder}>
-                            Create Subfolder
+                        <a className='labkey-text-link' onClick={onCreateDirectory}>
+                            Create Directory
                         </a>
                     </p>
                 )}
-                {showCreateSubfolderModal && <CreateSubfolderModal close={closeCreateSubfolder} submit={submitCreateSubfolder} />}
+                {showCreateDirectoryModal && <CreateDirectoryModal close={closeCreateDirectory} submit={submitCreateDirectory} />}
             </div>
         </div>
     );

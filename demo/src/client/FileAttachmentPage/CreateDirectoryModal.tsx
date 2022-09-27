@@ -6,7 +6,7 @@ interface Props {
     submit: (name: string) => void;
 }
 
-export const CreateSubfolderModal : FC<Props> = memo(props => {
+export const CreateDirectoryModal : FC<Props> = memo(props => {
     const { close, submit } = props;
     const [name, setName] = useState<string>('');
 
@@ -20,15 +20,15 @@ export const CreateSubfolderModal : FC<Props> = memo(props => {
 
     return (
         <Modal show={true} onHide={close}>
-            <Modal.Header>Create Subfolder</Modal.Header>
+            <Modal.Header>Create Directory</Modal.Header>
             <Modal.Body>
                 <Form>
                     <Row className="form-group">
                         <Col xs={4}>
-                            <div>Subfolder Name:</div>
+                            <div>Directory Name:</div>
                         </Col>
                         <Col xs={8}>
-                            <FormControl type="text" id={'subfolder-name'} name={'subfolder-name'} onChange={onChange} />
+                            <FormControl type="text" id={'directory-name'} name={'directory-name'} onChange={onChange} />
                         </Col>
                     </Row>
                 </Form>
