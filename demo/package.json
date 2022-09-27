@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "2.220.0-fb-webDavCreateDir46185.0"
+    "@labkey/components": "2.222.0"
   },
   "devDependencies": {
     "@labkey/build": "6.2.1",
