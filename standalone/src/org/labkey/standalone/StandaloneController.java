@@ -37,14 +37,16 @@ public class StandaloneController extends SpringActionController
     }
 
     @RequiresPermission(ReadPermission.class)
-    public class BeginAction extends SimpleViewAction<Object>
+    public static class BeginAction extends SimpleViewAction<Object>
     {
-        public ModelAndView getView(Object o, BindException errors) throws Exception
+        @Override
+        public ModelAndView getView(Object o, BindException errors)
         {
             return new HtmlView(HtmlString.unsafe("Hello, and welcome to the standalone module."));
         }
 
-        public void addNavTrail(NavTree root) 
+        @Override
+        public void addNavTrail(NavTree root)
         { 
         }
     }
