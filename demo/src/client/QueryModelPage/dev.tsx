@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import { App } from './QueryModelExample';
+import './queryModelExample.scss';
 
 const render = () => {
     ReactDOM.render(
