@@ -1,24 +1,23 @@
-import React, { PureComponent } from 'react';
-import { Query } from '@labkey/api';
-import { SchemaQuery } from '@labkey/components';
+import React, { FC, PureComponent } from 'react';
+import { Query, getServerContext } from '@labkey/api';
+import { SchemaQuery, ServerContextProvider, withAppUser, AppContextProvider } from '@labkey/components';
 
 import { ExampleDetailPanel } from "./ExampleDetailPanel";
 import { ExampleGridPanel } from "./ExampleGridPanel";
 
-import './queryModelExample.scss';
+export const App: FC = (() => {
+    const serverContext = withAppUser(getServerContext());
+    const queryConfigs = {
+        containersModel: {
+            schemaQuery: SchemaQuery.create('core', 'Containers'),
+            containerFilter: Query.containerFilter.allFolders,
+            omittedColumns: ['SortOrder','Searchable','Type','Title','ContainerType','Workbook','IdPrefixedName']
+        }
+    };
 
-export class App extends PureComponent {
-    render() {
-        const queryConfigs = {
-            containersModel: {
-                schemaQuery: SchemaQuery.create('core', 'Containers'),
-                containerFilter: Query.containerFilter.allFolders,
-                omittedColumns: ['SortOrder','Searchable','Type','Title','ContainerType','Workbook','IdPrefixedName']
-            }
-        };
-
-        return (
-            <>
+    return (
+        <ServerContextProvider initialContext={serverContext}>
+            <AppContextProvider>
                 <p>
                     This page contains two example usages of the <b>QueryModel API</b>. The first panel uses
                     the <b>DetailPanelWithModel</b> to show a details view of some information about the current
@@ -41,7 +40,7 @@ export class App extends PureComponent {
                     asPanel={true}
                     autoLoad
                 />
-            </>
-        )
-    }
-}
+            </AppContextProvider>
+        </ServerContextProvider>
+    )
+});

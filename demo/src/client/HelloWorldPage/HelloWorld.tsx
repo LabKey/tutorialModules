@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import './helloWorld.scss';
 
 export class App extends PureComponent {
     render() {
