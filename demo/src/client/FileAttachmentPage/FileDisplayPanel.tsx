@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Draft, produce } from "immer";
-import { ActionURL } from "@labkey/api";
-import { createWebDavDirectory, LoadingSpinner } from '@labkey/components';
+import { ActionURL } from '@labkey/api';
+import { ConfirmModal, createWebDavDirectory, deleteWebDavResource, LoadingSpinner } from '@labkey/components';
 
 import { MY_ATTACHMENTS_DIR } from "./constants";
 import { FileAttachmentModel, SavedFileModel } from "./models";
@@ -11,6 +11,7 @@ import { CreateDirectoryModal } from './CreateDirectoryModal';
 export const FileDisplayPanel : FC = memo(() => {
     const [loading, setLoading] = useState<boolean>(true);
     const [showCreateDirectoryModal, setShowCreateDirectoryModal] = useState<boolean>();
+    const [selectedDeleteResource, setSelectedDeleteResource] = useState<string>();
     const [fileAttachmentModel, setFileAttachmentModel] = useState<FileAttachmentModel>(new FileAttachmentModel());
 
     //equivalent to componentDidMount and componentDidUpdate
@@ -46,6 +47,7 @@ export const FileDisplayPanel : FC = memo(() => {
         if (!name?.startsWith('/')) path = path + '/';
         path = path + name;
 
+        // Note: containerPath param can be the path (i.e. '/MyProject') or the container GUID
         createWebDavDirectory(ActionURL.getContainer(), path, true)
             .then(() => {
                 // reset loading state to force refresh of panel savedFiles
@@ -53,7 +55,28 @@ export const FileDisplayPanel : FC = memo(() => {
             });
 
         closeCreateDirectory();
-    }, [closeCreateDirectory]);
+    }, [closeCreateDirectory, createWebDavDirectory]);
+
+    const onDeleteResource = useCallback((resourceName: string) => {
+        let path = MY_ATTACHMENTS_DIR;
+        if (!resourceName?.startsWith('/')) path = path + '/';
+        path = path + resourceName;
+
+        setSelectedDeleteResource(path);
+    }, []);
+
+    const onCancelDeleteResource = useCallback(() => {
+        setSelectedDeleteResource(undefined);
+    }, []);
+
+    const onConfirmDeleteResource = useCallback(() => {
+        deleteWebDavResource(ActionURL.getContainer(), selectedDeleteResource)
+            .then(() => {
+                // reset loading state to force refresh of panel savedFiles
+                setLoading(true);
+                setSelectedDeleteResource(undefined);
+            });
+    }, [deleteWebDavResource, selectedDeleteResource]);
 
     return (
         <div className='panel panel-default'>
@@ -69,6 +92,13 @@ export const FileDisplayPanel : FC = memo(() => {
                                 fileAttachmentModel?.savedFiles?.map((savedFile) => (
                                     <li key={savedFile.fileName}>
                                         <a href={savedFile.href} target='_blank'>{savedFile.fileName}</a>
+                                        <a
+                                            className="labkey-text-link"
+                                            style={{ paddingLeft: '10px' }}
+                                            onClick={() => onDeleteResource(savedFile.fileName)}
+                                        >
+                                            Delete
+                                        </a>
                                     </li>
                                 ))
                             }
@@ -95,6 +125,12 @@ export const FileDisplayPanel : FC = memo(() => {
                     </p>
                 )}
                 {showCreateDirectoryModal && <CreateDirectoryModal close={closeCreateDirectory} submit={submitCreateDirectory} />}
+                {selectedDeleteResource && (
+                    <ConfirmModal onConfirm={onConfirmDeleteResource} onCancel={onCancelDeleteResource} show title="Delete Resource?">
+                        <p>Are you sure you want to delete the selected resource?</p>
+                        <p><b>{selectedDeleteResource}</b></p>
+                    </ConfirmModal>
+                )}
             </div>
         </div>
     );
