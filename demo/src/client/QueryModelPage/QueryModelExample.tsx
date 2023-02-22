@@ -9,9 +9,10 @@ export const App: FC = (() => {
     const serverContext = withAppUser(getServerContext());
     const queryConfigs = {
         containersModel: {
-            schemaQuery: SchemaQuery.create('core', 'Containers'),
+            schemaQuery: new SchemaQuery('core', 'Containers'),
             containerFilter: Query.containerFilter.allFolders,
-            omittedColumns: ['SortOrder','Searchable','Type','Title','ContainerType','Workbook','IdPrefixedName']
+            omittedColumns: ['SortOrder','Searchable','Type','Title','ContainerType','Workbook','IdPrefixedName'],
+            includeTotalCount: true,
         }
     };
 

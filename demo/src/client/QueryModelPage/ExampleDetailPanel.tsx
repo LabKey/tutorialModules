@@ -11,7 +11,7 @@ export class ExampleDetailPanel extends PureComponent<Props> {
     // to get data from the LabKey server about the given container (i.e. keyValue).
     getQueryConfig(): QueryConfig {
         return {
-            schemaQuery: SchemaQuery.create('core', 'Containers'),
+            schemaQuery: new SchemaQuery('core', 'Containers'),
             keyValue: getServerContext().container.id
         };
     }

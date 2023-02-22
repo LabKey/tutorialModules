@@ -12,10 +12,10 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "2.261.0"
+    "@labkey/components": "2.295.0"
   },
   "devDependencies": {
-    "@labkey/build": "6.4.0",
+    "@labkey/build": "6.9.0",
     "@types/enzyme": "3.10.12",
     "@types/jest": "29.2.0",
     "@types/react": "16.14.34",
