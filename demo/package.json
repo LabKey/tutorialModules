@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "2.294.0-fb-gridIncludeTotalCount.1"
+    "@labkey/components": "2.295.0"
   },
   "devDependencies": {
     "@labkey/build": "6.9.0",
