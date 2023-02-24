@@ -58,7 +58,6 @@ configurations
 
 dependencies
         {
-            implementation "org.labkey.api:internal:${labkeyVersion}" // Dependency on the api jar file for internal module
             implementation "org.labkey.api:issues:${labkeyVersion}" // An example of declaring a dependency on the API jar for a module
             implementation "org.labkey.api:labkey-client-api:${labkeyClientApiVersion}" // Dependency on the LabKey client api
             external "commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}" // An external dependency to be included in the module's lib directory
