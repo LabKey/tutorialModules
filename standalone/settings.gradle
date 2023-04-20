@@ -1,9 +1,10 @@
 buildscript {
     repositories {
-        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
         // These repositories contain the LabKey gradle plugin
         maven {
-            url "${artifactory_contextUrl}/plugins-release"
+            url "${artifactory_contextUrl}/plugins-release-no-proxy"
         }
         maven {
             url "${artifactory_contextUrl}/plugins-snapshot-local"
@@ -31,11 +32,11 @@ gradle.beforeProject { project ->
         mavenCentral()
         maven {
             // Use this repository when relying on release versions of the LabKey artifacts and their external dependencies
-            url "${project.artifactory_contextUrl}/libs-release"
+            url "${project.artifactory_contextUrl}/libs-release-no-proxy"
         }
         maven {
             // Use this repository when relying on snapshot versions of LabKey artifacts
-            url "${project.artifactory_contextUrl}/libs-snapshot"
+            url "${project.artifactory_contextUrl}/libs-snapshot-no-proxy"
         }
     }
 }
