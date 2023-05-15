@@ -1,0 +1,6 @@
+<webpart xmlns="http://labkey.org/data/xml/webpart" title="Documentation: Styling and Appearance">
+    <view name="stylingSide"/>
+    <locations>
+        <location name="right"/>
+    </locations>
+</webpart>

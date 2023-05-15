@@ -1,0 +1,10 @@
+<view xmlns="http://labkey.org/data/xml/view"
+      title="Documentation: Views and Webparts"
+      template="body"
+>
+    <permissions>
+        <permission name="read"/>
+    </permissions>
+    <dependencies>
+    </dependencies>
+</view>

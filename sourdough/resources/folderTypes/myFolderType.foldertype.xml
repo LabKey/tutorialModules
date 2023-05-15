@@ -1,0 +1,67 @@
+<ft:folderType xmlns:ft="http://labkey.org/data/xml/folderType">
+    <ft:name>Sourdough</ft:name>
+    <ft:description>A demonstration of defining a tabbed folder type in an XML file</ft:description>
+    <ft:folderTabs>
+        <ft:folderTab>
+            <ft:name>Overview</ft:name>
+            <ft:caption>Overview</ft:caption>
+            <ft:requiredWebParts>
+                <ft:webPart>
+                    <ft:name>Sourdough Overview</ft:name>
+                    <ft:location>body</ft:location>
+                </ft:webPart>
+                <ft:webPart>
+                    <ft:name>Further Reading</ft:name>
+                    <ft:location>right</ft:location>
+                </ft:webPart>
+            </ft:requiredWebParts>
+        </ft:folderTab>
+        <ft:folderTab>
+            <ft:name>ViewsAndWebparts</ft:name>
+            <ft:caption>Views and Webparts</ft:caption>
+            <ft:requiredWebParts>
+                <ft:webPart>
+                    <ft:name>Daily Log</ft:name>
+                    <ft:location>body</ft:location>
+                </ft:webPart>
+                <ft:webPart>
+                    <ft:name>Documentation: Views and Webparts</ft:name>
+                    <ft:location>right</ft:location>
+                </ft:webPart>
+            </ft:requiredWebParts>
+        </ft:folderTab>
+        <ft:folderTab>
+            <ft:name>QueriesAndReports</ft:name>
+            <ft:caption>Queries and Reports</ft:caption>
+            <ft:requiredWebParts>
+                <ft:webPart>
+                    <ft:name>Dashboard</ft:name>
+                    <ft:location>body</ft:location>
+                </ft:webPart>
+                <ft:webPart>
+                    <ft:name>Documentation: Queries and Reports</ft:name>
+                    <ft:location>right</ft:location>
+                </ft:webPart>
+            </ft:requiredWebParts>
+        </ft:folderTab>
+        <ft:folderTab>
+            <ft:name>StylingAndAppearance</ft:name>
+            <ft:caption>Styling and Appearance</ft:caption>
+            <ft:requiredWebParts>
+                <ft:webPart>
+                    <ft:name>Styling</ft:name>
+                    <ft:location>body</ft:location>
+                </ft:webPart>
+                <ft:webPart>
+                    <ft:name>Documentation: Styling and Appearance</ft:name>
+                    <ft:location>right</ft:location>
+                </ft:webPart>
+            </ft:requiredWebParts>
+        </ft:folderTab>
+    </ft:folderTabs>
+    <ft:modules>
+        <ft:moduleName>sourdough</ft:moduleName>
+        <ft:moduleName>Query</ft:moduleName>
+    </ft:modules>
+    <ft:defaultModule>Core</ft:defaultModule>
+</ft:folderType>

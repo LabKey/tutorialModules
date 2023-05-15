@@ -1,0 +1,56 @@
+.daily-log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.daily-log-form {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.daily-log-form__title {
+    font-size: 20px;
+}
+
+.daily-log-input {
+    display: flex;
+    margin-top: 15px;
+}
+
+.daily-log-input__label {
+    width: 100px;
+}
+
+.daily-log-input__field {
+    width: 250px;
+}
+
+.daily-log-upload-label {
+    border: 1px solid #a9a9a9;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.daily-log-form__submit {
+    margin-top: 30px;
+    margin-left: 190px;
+    width: 70px;
+    border: 1px solid #a9a9a9;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#daily-log-upload-indicator {
+    margin-left: 5px;
+    margin-top: 8px;
+    color: #a9a9a9;
+}
+
+#myQWP {
+    width: 600px;
+}
+
+input[type="file"] {
+    display: none;
+}
