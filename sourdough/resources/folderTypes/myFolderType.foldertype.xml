@@ -61,7 +61,6 @@
     </ft:folderTabs>
     <ft:modules>
         <ft:moduleName>sourdough</ft:moduleName>
-        <ft:moduleName>Query</ft:moduleName>
     </ft:modules>
     <ft:defaultModule>Core</ft:defaultModule>
 </ft:folderType>
