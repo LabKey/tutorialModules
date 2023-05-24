@@ -4,7 +4,7 @@
 const setHeaderFooter = (on) => {
     const module = on ? 'sourdough' : 'Core';
 
-    if (LABKEY.container.activeModules.includes("Premium")) {
+    if (LABKEY.moduleContext.api.moduleNames.includes("premium")) {
         LABKEY.Ajax.request({
             method: 'POST',
             url: LABKEY.ActionURL.buildURL('premium', 'adminConsoleConfigurePageElements.view', '/', {
