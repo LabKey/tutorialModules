@@ -1,15 +1,22 @@
+// The following calls are for illustrative demoing purposes. Note that calling the below endpoints directly is not
+// usual practice.
+
 const setHeaderFooter = (on) => {
     const module = on ? 'sourdough' : 'Core';
 
-    LABKEY.Ajax.request({
-        method: 'POST',
-        url: LABKEY.ActionURL.buildURL('premium', 'adminConsoleConfigurePageElements.view', '/', {
-            headerModule: module,
-            bannerModule: 'none',
-            footerModule: module,
-        }),
-        success: (r) => { location.reload() },
-    });
+    if (LABKEY.container.activeModules.includes("Premium")) {
+        LABKEY.Ajax.request({
+            method: 'POST',
+            url: LABKEY.ActionURL.buildURL('premium', 'adminConsoleConfigurePageElements.view', '/', {
+                headerModule: module,
+                bannerModule: 'none',
+                footerModule: module,
+            }),
+            success: () => { location.reload() },
+        });
+    } else {
+        alert("Error: Premium module is required but absent")
+    }
 };
 
 const setLogin = (on) => {
@@ -31,5 +38,7 @@ const setLogin = (on) => {
             dateParsingMode: "US",
             customLogin: on ? "sourdough-login" : "login-login"
         }),
+        success: () => { alert("Success!") },
+        failure: (e) => { alert("Error!") },
     });
 }

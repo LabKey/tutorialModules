@@ -7,9 +7,11 @@
     <template xsi:type="ListTemplateType">
         <table tableName="DailyLog" tableDbType="NOT_IN_DB">
             <dat:columns>
+                <dat:column columnName="autoIntKey">
+                    <dat:rangeURI>int</dat:rangeURI>
+                </dat:column>
                 <dat:column columnName="Date" mandatory="true">
-                    <dat:rangeURI>string</dat:rangeURI>
-                    <dat:scale>50</dat:scale>
+                    <dat:rangeURI>dateTime</dat:rangeURI>
                 </dat:column>
                 <dat:column columnName="Comment">
                     <dat:rangeURI>multiLine</dat:rangeURI>
@@ -20,7 +22,7 @@
             </dat:columns>
         </table>
         <options>
-            <keyCol>Date</keyCol>
+            <keyCol>autoIntKey</keyCol>
         </options>
     </template>
 

@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Daily Log</title>
-</head>
-<body>
-    <div class="daily-log">
-        <div id='myQWP'></div>
-        <div class="daily-log-form">
-            <div class="daily-log-form__title"> Add a New Entry </div>
-            <div class="daily-log-input">
-                <label for="date" class="daily-log-input__label">Date</label>
-                <input type="text" id="date" name="date" class="daily-log-input__field">
-            </div>
-            <div class="daily-log-input">
-                <label for="comment" class="daily-log-input__label">Comment</label>
-                <textarea id="comment" name="comment" class="daily-log-input__field"></textarea>
-            </div>
-            <div class="daily-log-input">
-                <div class="daily-log-input__label">Picture</div>
-                <label for="picture" class="daily-log-upload-label">upload</label>
-                <input type="file" id="picture" name="picture" onchange="onUpload(this)">
-                <div id="daily-log-upload-indicator"></div>
-            </div>
-            <div class="daily-log-form__submit" onclick="onSubmit()"> Submit </div>
+<div class="daily-log">
+    <div id='myQWP'></div>
+    <div class="daily-log-form">
+        <div class="daily-log-form__title"> Add a New Entry </div>
+        <div class="daily-log-input">
+            <label for="date" class="daily-log-input__label">Date</label>
+            <input type="text" id="date" name="date" class="daily-log-input__field">
         </div>
+        <div class="daily-log-input">
+            <label for="comment" class="daily-log-input__label">Comment</label>
+            <textarea id="comment" name="comment" class="daily-log-input__field"></textarea>
+        </div>
+        <div class="daily-log-input">
+            <div class="daily-log-input__label">Picture</div>
+            <label for="picture" class="daily-log-upload-label">upload</label>
+            <input type="file" id="picture" name="picture" onchange="onUpload(this)">
+            <div id="daily-log-upload-indicator"></div>
+        </div>
+        <div class="daily-log-form__submit" onclick="onSubmit()"> Submit </div>
     </div>
-    <script>
-        init();
-    </script>
-</body>
-</html>
+</div>
+<script>
+    init();
+</script>
