@@ -1,0 +1,12 @@
+<view xmlns="http://labkey.org/data/xml/view"
+      title="Dashboard"
+      template="body"
+>
+    <permissions>
+        <permission name="read"/>
+    </permissions>
+    <dependencies>
+        <dependency path="dashboard/script.js"/>
+        <dependency path="dashboard/styles.css"/>
+    </dependencies>
+</view>

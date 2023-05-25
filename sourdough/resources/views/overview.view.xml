@@ -1,0 +1,12 @@
+<view xmlns="http://labkey.org/data/xml/view"
+      title="Sourdough Overview"
+      template="body"
+>
+    <permissions>
+        <permission name="read"/>
+    </permissions>
+    <dependencies>
+        <dependency path="overview/script.js"/>
+        <dependency path="overview/styles.css"/>
+    </dependencies>
+</view>

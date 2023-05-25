@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates
+        xmlns="http://labkey.org/data/xml/domainTemplate"
+        xmlns:dat="http://labkey.org/data/xml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <template xsi:type="ListTemplateType">
+        <table tableName="DailyLog" tableDbType="NOT_IN_DB">
+            <dat:columns>
+                <dat:column columnName="autoIntKey">
+                    <dat:rangeURI>int</dat:rangeURI>
+                </dat:column>
+                <dat:column columnName="Date" mandatory="true">
+                    <dat:rangeURI>dateTime</dat:rangeURI>
+                </dat:column>
+                <dat:column columnName="Comment">
+                    <dat:rangeURI>multiLine</dat:rangeURI>
+                </dat:column>
+                <dat:column columnName="Picture">
+                    <dat:rangeURI>http://www.labkey.org/exp/xml#attachment</dat:rangeURI>
+                </dat:column>
+            </dat:columns>
+        </table>
+        <options>
+            <keyCol>autoIntKey</keyCol>
+        </options>
+    </template>
+
+    <template xsi:type="ListTemplateType">
+        <table tableName="Rises" tableDbType="NOT_IN_DB">
+            <dat:columns>
+                <dat:column columnName="X" mandatory="true">
+                    <dat:rangeURI>int</dat:rangeURI>
+                </dat:column>
+                <dat:column columnName="starter1">
+                    <dat:rangeURI>int</dat:rangeURI>
+                </dat:column>
+                <dat:column columnName="starter2">
+                    <dat:rangeURI>int</dat:rangeURI>
+                </dat:column>
+                <dat:column columnName="starter3">
+                    <dat:rangeURI>int</dat:rangeURI>
+                </dat:column>
+            </dat:columns>
+        </table>
+        <initialData>
+            <file>/data/rises.csv</file>
+        </initialData>
+        <options>
+            <keyCol>X</keyCol>
+        </options>
+    </template>
+
+
+</templates>

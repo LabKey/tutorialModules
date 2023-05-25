@@ -1,0 +1,13 @@
+<view xmlns="http://labkey.org/data/xml/view"
+      title="Styling"
+      template="body"
+      frame="none"
+>
+    <permissions>
+        <permission name="read"/>
+    </permissions>
+    <dependencies>
+        <dependency path="styling/script.js"/>
+        <dependency path="styling/styles.css"/>
+    </dependencies>
+</view>

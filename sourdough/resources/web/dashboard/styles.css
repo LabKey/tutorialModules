@@ -1,0 +1,23 @@
+#loading {
+    color: #a9a9a9;
+}
+
+#dashboard {
+    width: 850px;
+}
+
+.dashboard__image {
+    width: 100%;
+}
+
+.dashboard__output {
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 1em;
+}
+
+.queryWebParts {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}

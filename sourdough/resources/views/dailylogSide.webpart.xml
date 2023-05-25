@@ -1,0 +1,6 @@
+<webpart xmlns="http://labkey.org/data/xml/webpart" title="Documentation: Views and Webparts">
+    <view name="dailylogSide"/>
+    <locations>
+        <location name="right"/>
+    </locations>
+</webpart>

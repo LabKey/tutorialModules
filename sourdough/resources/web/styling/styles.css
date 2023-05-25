@@ -1,0 +1,56 @@
+.frame {
+    background-color: #e3eaf6;
+    border: 10px solid #116596;
+    border-radius: 25px;
+    font-family: monospace;
+    margin: 0 15px 0 15px;
+}
+
+.frameHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.frameHeader__title {
+    color: #116596;
+    font-size: 25px;
+}
+
+.frameHeader__subtitle {
+    color: #116596;
+    font-size: 14px;
+}
+
+.loaf {
+    width:250px;
+    height: auto;
+    margin-right: 110px;
+}
+
+.loafContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.buttonRow {
+    display: flex;
+    margin: 15px 0 15px 15px;
+    height: 25px;
+}
+
+.buttonRow__label {
+    margin-top: 3px;
+    width: 280px;
+}
+
+.buttonRow__button {
+    border: 3px solid #116596;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+    margin-left: 10px;
+}

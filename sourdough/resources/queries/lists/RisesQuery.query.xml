@@ -1,0 +1,43 @@
+<query xmlns="http://labkey.org/data/xml/query">
+    <metadata>
+        <tables xmlns="http://labkey.org/data/xml">
+            <table tableName="RisesQuery" tableDbType="NOT_IN_DB">
+                <columns>
+                    <column columnName="starter1">
+                        <conditionalFormats>
+                            <conditionalFormat>
+                                <filters>
+                                    <filter operator="gt" value="320"/>
+                                </filters>
+                                <backgroundColor>a4dd00</backgroundColor>
+                                <bold> true </bold>
+                            </conditionalFormat>
+                        </conditionalFormats>
+                    </column>
+                    <column columnName="starter2">
+                        <conditionalFormats>
+                            <conditionalFormat>
+                                <filters>
+                                    <filter operator="gt" value="320"/>
+                                </filters>
+                                <backgroundColor>a4dd00</backgroundColor>
+                                <bold> true </bold>
+                            </conditionalFormat>
+                        </conditionalFormats>
+                    </column>
+                    <column columnName="starter3">
+                        <conditionalFormats>
+                            <conditionalFormat>
+                                <filters>
+                                    <filter operator="gt" value="320"/>
+                                </filters>
+                                <backgroundColor>a4dd00</backgroundColor>
+                                <bold> true </bold>
+                            </conditionalFormat>
+                        </conditionalFormats>
+                    </column>
+                </columns>
+            </table>
+        </tables>
+    </metadata>
+</query>

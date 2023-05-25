@@ -1,0 +1,10 @@
+<view xmlns="http://labkey.org/data/xml/view"
+      title="Documentation: Queries and Reports"
+      template="body"
+>
+    <permissions>
+        <permission name="read"/>
+    </permissions>
+    <dependencies>
+    </dependencies>
+</view>
