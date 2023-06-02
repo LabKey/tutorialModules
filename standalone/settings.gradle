@@ -5,15 +5,21 @@ buildscript {
         // These repositories contain the LabKey gradle plugin
         maven {
             url "${artifactory_contextUrl}/plugins-release-no-proxy"
+            mavenContent {
+                releasesOnly()
+            }
         }
         maven {
             url "${artifactory_contextUrl}/plugins-snapshot-local"
+            mavenContent {
+                snapshotsOnly()
+            }
         }
     }
     dependencies {
         classpath "org.labkey.build:gradlePlugins:${gradlePluginsVersion}"
     }
-    configurations.all {
+    configurations.configureEach {
         // Check for updates every build for SNAPSHOT dependencies
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     }
@@ -33,10 +39,22 @@ gradle.beforeProject { project ->
         maven {
             // Use this repository when relying on release versions of the LabKey artifacts and their external dependencies
             url "${project.artifactory_contextUrl}/libs-release-no-proxy"
+            mavenContent {
+                releasesOnly()
+            }
         }
         maven {
             // Use this repository when relying on snapshot versions of LabKey artifacts
             url "${project.artifactory_contextUrl}/libs-snapshot-no-proxy"
+            mavenContent {
+                snapshotsOnly()
+            }
+            content {
+                includeGroup "org.labkey"
+                includeGroup "org.labkey.api"
+                includeGroup "org.labkey.module"
+                includeGroup "org.maccosslab"
+            }
         }
     }
 }
