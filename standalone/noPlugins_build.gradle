@@ -41,11 +41,17 @@ repositories
         {
             // Use this repository when relying on release versions of the LabKey artifacts and their external dependencies
             maven {
-                url "${project.artifactory_contextUrl}/libs-release"
+                url "${project.artifactory_contextUrl}/libs-release-no-proxy"
+                mavenContent {
+                    releasesOnly()
+                }
             }
             // Use this repository when relying on snapshot versions of LabKey artifacts or requiring snapshot external dependencies
             maven {
-                url "${project.artifactory_contextUrl}/libs-snapshot"
+                url "${project.artifactory_contextUrl}/libs-snapshot-no-proxy"
+                mavenContent {
+                    snapshotsOnly()
+                }
             }
             mavenCentral() // include the Maven Central repository separately in case lookup with previous repository fails
         }
