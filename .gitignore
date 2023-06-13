@@ -1,7 +1,4 @@
 # generated artifacts
-demo/node_modules
-demo/resources/web/demo/gen
-demo/resources/views/gen
 dependencies.txt
 jars.txt
 enlistment.properties
