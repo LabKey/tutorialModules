@@ -1,0 +1,6 @@
+<webpart xmlns="http://labkey.org/data/xml/webpart" title="To-Do List Webpart">
+    <view name="demoWebpart"/>
+    <locations>
+        <location name="body"/>
+    </locations>
+</webpart>

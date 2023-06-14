@@ -1,0 +1,23 @@
+
+.todo-form > * {
+  margin-right: 10px;
+}
+.todo-form input {
+  display: inline-block;
+  width: 400px;
+}
+.todo-list {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.todo-list.todo-list--completed label {
+  text-decoration: line-through;
+}
+.todo-item label,
+.todo-item input {
+  cursor: pointer;
+}
+.todo-empty {
+  color: #777;
+}

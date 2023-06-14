@@ -1,4 +1,8 @@
 # generated artifacts
+reactExamples/node_modules
+reactExamples/resources/web/gen
+reactExamples/resources/web/reactExamples/gen
+reactExamples/resources/views/gen
 dependencies.txt
 jars.txt
 enlistment.properties
