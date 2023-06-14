@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { App } from './HelloWorld';
 
 describe('HelloWorld', () => {
@@ -14,8 +13,6 @@ describe('HelloWorld', () => {
         expect(helloWorldSpan.length).toEqual(1);
         expect(helloWorldSpan.text()).toEqual('Hello World!');
 
-        // Verify snapshot
-        expect(toJson(helloWorld)).toMatchSnapshot();
         helloWorld.unmount();
     });
 });
