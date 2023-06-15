@@ -47,10 +47,11 @@ pages (note the "Dev" added to the end of the action name).
 
 <a name="jest"></a>
 ## Jest Tests
-This module is setup to run Jest tests, including using Enzyme and Jest Snapshot testing. There is an example Jest test and
-Jest snapshot in the HelloWorld module.  Jest tests can be run using `npm run test` or they can be run directly in IntelliJ.
+This module is setup to run Jest tests, including using [React Testing Library]. There is an example Jest test
+in the HelloWorld module.  Jest tests can be run using `npm run test` or they can be run directly in IntelliJ.
 
 
 [LabKey Gradle build]: https://www.labkey.org/Documentation/wiki-page.view?name=gradleBuild
 [Node.js Build Dependency]: https://www.labkey.org/Documentation/wiki-page.view?name=nodejs
 [Public API doc]: https://github.com/LabKey/labkey-ui-components/blob/master/packages/components/docs/public.md 
+[React Testing Library]: https://testing-library.com/docs/react-testing-library/intro/ 
