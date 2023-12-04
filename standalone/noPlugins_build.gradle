@@ -32,7 +32,7 @@ project.version="0.0.1-SNAPSHOT"
 
 ext {
     // The following are convenience variables for the various output directories used below
-    explodedModuleDir = "${project.buildDir}/explodedModule"
+    explodedModuleDir = project.layout.buildDirectory.file("explodedModule").get().asFile.path
     libDir = "${explodedModuleDir}/lib"
     configDir = "${explodedModuleDir}/config"
 }
@@ -103,14 +103,14 @@ project.tasks.register("apiJar", Jar) {
         jar.description = "produce jar file for api"
         jar.from project.sourceSets.api.output
         jar.archiveBaseName.set("${project.name}_api")
-        jar.destinationDirectory = project.file(libDir)
+        jar.destinationDirectory.set(project.file(libDir))
         jar.dependsOn(project.apiClasses)
 }
 
 project.jar {
     Jar jar ->
         jar.archiveBaseName.set(project.name)
-        jar.destinationDirectory = project.file(libDir)
+        jar.destinationDirectory.set(project.file(libDir))
         jar.dependsOn(project.tasks.apiJar)
 }
 
@@ -171,7 +171,7 @@ project.tasks.register("module", Jar) {
         jar.from explodedModuleDir
         jar.archiveBaseName.set(project.name)
         jar.archiveExtension.set('module')
-        jar.destinationDirectory = project.buildDir
+        jar.destinationDirectory.set(project.layout.buildDirectory)
         jar.dependsOn(project.tasks.moduleXml)
         jar.dependsOn(project.tasks.processModuleResources)
         jar.dependsOn(project.tasks.copyExternalLibs)
