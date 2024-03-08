@@ -6,7 +6,7 @@
 <div>
     To get started, click below to initialize data import and styling configuration.
     <div class="overview">
-        <div class="overview__button" onclick="onInit()"> Initialize </div>
+        <div class="overview__button" id="overview__button"> Initialize </div>
         <div id="overview__text"> </div>
     </div>
 </div>
@@ -40,3 +40,8 @@
         <li> Customizing the login page </li>
     </ul>
 </div>
+<script type="text/javascript" nonce="<%=scriptNonce%>">
+    LABKEY.Utils.onReady(function() {
+        document.getElementById('overview__button')['onclick'] = onInit;
+    });
+</script>

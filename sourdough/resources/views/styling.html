@@ -14,13 +14,21 @@
 
     <div class="buttonRow">
         <div class="buttonRow__label">Toggle custom header and footer</div>
-        <div class="buttonRow__button" onclick="setHeaderFooter(true)"> on </div>
-        <div class="buttonRow__button" onclick="setHeaderFooter(false)"> off </div>
+        <div class="buttonRow__button" id="setHeaderFooterOn"> on </div>
+        <div class="buttonRow__button" id="setHeaderFooterOff"> off </div>
     </div>
 
     <div class="buttonRow">
         <div class="buttonRow__label">Toggle custom login page</div>
-        <div class="buttonRow__button" onclick="setLogin(true)"> on </div>
-        <div class="buttonRow__button" onclick="setLogin(false)"> off </div>
+        <div class="buttonRow__button" id="setLoginOn"> on </div>
+        <div class="buttonRow__button" id="setLoginOff"> off </div>
     </div>
 </div>
+<script type="text/javascript" nonce="<%=scriptNonce%>">
+    LABKEY.Utils.onReady(function(){
+        document.getElementById('setHeaderFooterOn')['onclick'] = function() { setHeaderFooter(true) };
+        document.getElementById('setHeaderFooterOff')['onclick'] = function() { setHeaderFooter(false) };
+        document.getElementById('setLoginOn')['onclick'] = function() { setLogin(true) };
+        document.getElementById('setLoginOff')['onclick'] = function() { setLogin(false) };
+    });
+</script>
