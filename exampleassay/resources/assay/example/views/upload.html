@@ -25,7 +25,6 @@
     </tr>
 </table>
 
-
 <form id='upload-run-form' enctype='multipart/form-data' method='POST'>
     <div id='upload-run-button'></div>
 </form>
@@ -33,12 +32,15 @@
 <div id='runs_div'></div>
 
 <p>
-    <a href='javascript:done()' class='labkey-button'>
+    <a id='done' class='labkey-button'>
         <span>Done</span>
     </a>
 </p>
 
 <script type="text/javascript" nonce="<%=scriptNonce%>">
+LABKEY.Utils.onReady(function(){
+    document.getElementById('done')['onclick'] = done;
+});
 
 function done()
 {
