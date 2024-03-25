@@ -44,7 +44,6 @@ class ExampleGridPanelImpl extends PureComponent<Props> {
                 actions={actions}
                 title={title}
                 asPanel={asPanel}
-                hideEmptyChartMenu={true}
                 hideEmptyViewMenu={true}
             />
         );
