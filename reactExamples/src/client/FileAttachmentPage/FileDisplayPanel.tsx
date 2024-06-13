@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Draft, produce } from "immer";
 import { ActionURL } from '@labkey/api';
-import { ConfirmModal, createWebDavDirectory, deleteWebDavResource, LoadingSpinner } from '@labkey/components';
+import { createWebDavDirectory, deleteWebDavResource, LoadingSpinner, Modal } from '@labkey/components';
 
 import { MY_ATTACHMENTS_DIR } from "./constants";
 import { FileAttachmentModel, SavedFileModel } from "./models";
@@ -126,10 +126,10 @@ export const FileDisplayPanel : FC = memo(() => {
                 )}
                 {showCreateDirectoryModal && <CreateDirectoryModal close={closeCreateDirectory} submit={submitCreateDirectory} />}
                 {selectedDeleteResource && (
-                    <ConfirmModal onConfirm={onConfirmDeleteResource} onCancel={onCancelDeleteResource} show title="Delete Resource?">
+                    <Modal onConfirm={onConfirmDeleteResource} onCancel={onCancelDeleteResource} confirmText="Delete" confirmClass="btn-danger" title="Delete Resource?">
                         <p>Are you sure you want to delete the selected resource?</p>
                         <p><b>{selectedDeleteResource}</b></p>
-                    </ConfirmModal>
+                    </Modal>
                 )}
             </div>
         </div>

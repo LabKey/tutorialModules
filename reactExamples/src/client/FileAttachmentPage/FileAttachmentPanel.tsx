@@ -29,11 +29,13 @@ export const FileAttachmentPanel: FC<Props> = memo((props) => {
                 </div>
                 <div className='panel-body'>
                     <FileAttachmentForm
-                        acceptedFormats=".pdf, .jpg"
-                        allowDirectories={false}
-                        allowMultiple={true}
+                        acceptedFormats=".jpg, .pdf, .png"
+                        allowDirectories
+                        allowMultiple
+                        includeDirectoryFiles
+                        fileCountSuffix="included"
                         showLabel={false}
-                        showButtons={true}
+                        showButtons
                         onSubmit={onSaveBtnHandler}
                         onFileChange={onFileChange}
                     />
