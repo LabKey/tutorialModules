@@ -33,7 +33,7 @@ export const FileAttachmentPanel: FC<Props> = memo((props) => {
                         allowDirectories
                         allowMultiple
                         includeDirectoryFiles
-                        fileCountSuffix={'included'}
+                        fileCountSuffix="included"
                         showLabel={false}
                         showButtons
                         onSubmit={onSaveBtnHandler}
