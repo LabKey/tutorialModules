@@ -1,5 +1,5 @@
-import React, { FC, memo, useCallback, useState } from 'react';
-import { Button, Col, Form, FormControl, Modal, Row } from 'react-bootstrap';
+import React, { ChangeEvent, FC, memo, useCallback, useState } from 'react';
+import { Modal } from '@labkey/components';
 
 interface Props {
     close: () => void;
@@ -10,44 +10,29 @@ export const CreateDirectoryModal : FC<Props> = memo(props => {
     const { close, submit } = props;
     const [name, setName] = useState<string>('');
 
-    const onChange = useCallback((evt: any) => {
+    const onChange = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
         setName(evt.target.value);
     }, []);
 
-    const _submit = useCallback((evt: any) => {
+    const _submit = useCallback(() => {
         submit(name?.trim());
     }, [submit, name]);
 
     return (
-        <Modal show={true} onHide={close}>
-            <Modal.Header>Create Directory</Modal.Header>
-            <Modal.Body>
-                <Form>
-                    <Row className="form-group">
-                        <Col xs={4}>
-                            <div>Directory Name:</div>
-                        </Col>
-                        <Col xs={8}>
-                            <FormControl type="text" id={'directory-name'} name={'directory-name'} onChange={onChange} />
-                        </Col>
-                    </Row>
-                </Form>
-                <Row>
-                    <Col xs={12}>
-                        <Button onClick={close} className="pull-left">
-                            Cancel
-                        </Button>
-                        <Button
-                            className="pull-right"
-                            bsStyle="success"
-                            disabled={name?.trim().length === 0}
-                            onClick={_submit}
-                        >
-                            Submit
-                        </Button>
-                    </Col>
-                </Row>
-            </Modal.Body>
+        <Modal
+            canConfirm={name?.trim().length === 0}
+            confirmText="Submit"
+            onCancel={close}
+            onConfirm={_submit} title="Create Directory"
+        >
+            <div className="form-group row">
+                <div className="col-xs-4">
+                    <div>Directory Name:</div>
+                </div>
+                <div className="col-xs-8">
+                    <input type="text" id={'directory-name'} name={'directory-name'} onChange={onChange}/>
+                </div>
+            </div>
         </Modal>
     )
 });
