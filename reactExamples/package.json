@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "3.57.0-fb-remove-react-bootstrap-usages.6"
+    "@labkey/components": "4.0.0-fb-remove-react-bootstrap-usages.0"
   },
   "devDependencies": {
     "@labkey/build": "7.3.0",
