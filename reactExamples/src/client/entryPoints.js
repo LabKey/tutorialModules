@@ -7,12 +7,12 @@ module.exports = {
     apps: [{
         name: 'helloWorld',
         title: 'Hello World Page',
-        permission: 'read',
+        permissionClasses: ['org.labkey.api.security.permissions.ReadPermission'],
         path: './src/client/HelloWorldPage'
     },{
         name: 'todoList',
         title: 'To-Do List Page',
-        permission: 'insert',
+        permissionClasses: ['org.labkey.api.security.permissions.InsertPermission'],
         path: './src/client/ToDoListPage'
     },{
         name: 'demoWebpart',
@@ -23,12 +23,12 @@ module.exports = {
     },{
         name: 'queryModel',
         title: 'QueryModel Example Page',
-        permission: 'read',
+        permissionClasses: ['org.labkey.api.security.permissions.ReadPermission'],
         path: './src/client/QueryModelPage'
     },{
         name: 'fileAttachmentForm',
         title: 'File Attachment Example Page',
-        permission: 'insert',
+        permissionClasses: ['org.labkey.api.security.permissions.InsertPermission'],
         path: './src/client/FileAttachmentPage'
     }]
 };
