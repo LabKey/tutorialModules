@@ -3,7 +3,6 @@ import { FileAttachmentForm } from '@labkey/components';
 import { Map } from 'immutable';
 import { Draft, produce } from 'immer';
 import { FileAttachmentModel } from "./models";
-import { Panel } from 'react-bootstrap';
 
 interface Props {
     model: FileAttachmentModel;
