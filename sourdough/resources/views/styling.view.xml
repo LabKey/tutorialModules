@@ -3,9 +3,9 @@
       template="body"
       frame="none"
 >
-    <permissions>
-        <permission name="read"/>
-    </permissions>
+    <permissionClasses>
+        <permissionClass name="org.labkey.api.security.permissions.ReadPermission"/>
+    </permissionClasses>
     <dependencies>
         <dependency path="styling/script.js"/>
         <dependency path="styling/styles.css"/>
