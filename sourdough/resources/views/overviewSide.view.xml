@@ -2,9 +2,9 @@
       title="Further Reading"
       template="body"
 >
-    <permissions>
-        <permission name="read"/>
-    </permissions>
+    <permissionClasses>
+        <permissionClass name="org.labkey.api.security.permissions.ReadPermission"/>
+    </permissionClasses>
     <dependencies>
     </dependencies>
 </view>

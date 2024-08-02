@@ -2,9 +2,9 @@
       title="Sourdough Overview"
       template="body"
 >
-    <permissions>
-        <permission name="read"/>
-    </permissions>
+    <permissionClasses>
+        <permissionClass name="org.labkey.api.security.permissions.ReadPermission"/>
+    </permissionClasses>
     <dependencies>
         <dependency path="overview/script.js"/>
         <dependency path="overview/styles.css"/>
