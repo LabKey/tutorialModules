@@ -2,9 +2,9 @@
       title="Daily Log"
       template="body"
 >
-    <permissionClasses>
+    <requiresPermissions>
         <permissionClass name="org.labkey.api.security.permissions.ReadPermission"/>
-    </permissionClasses>
+    </requiresPermissions>
     <dependencies>
         <!--    local imports    -->
         <dependency path="dailylog/script.js"/>
