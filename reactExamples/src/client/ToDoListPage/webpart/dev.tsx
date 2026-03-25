@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { App } from '@labkey/api';
 
 import { ToDoListPage } from "../ToDoListPage";
 
 App.registerApp<any>('demoWebpart', (target: string) => {
-    ReactDOM.render(<ToDoListPage />, document.getElementById(target));
+    createRoot(document.getElementById(target)).render(<ToDoListPage />);
 }, true /* hot */);
