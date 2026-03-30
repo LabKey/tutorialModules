@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { ToDoListPage } from './ToDoListPage';
 
 const render = () => {
-    ReactDOM.render(<ToDoListPage />, document.getElementById('app'))
+    createRoot(document.getElementById('app')).render(<ToDoListPage />);
 };
 
 render();
