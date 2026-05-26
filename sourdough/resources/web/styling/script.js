@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2023-2026 LabKey Corporation
+ *
+ * Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+ */
 // The following calls are for illustrative demoing purposes. Note that calling the below endpoints directly is not
 // usual practice.
 
