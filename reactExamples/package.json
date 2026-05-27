@@ -12,10 +12,10 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "7.38.1-fb-packagesMay15.0"
+    "@labkey/components": "7.39.1"
   },
   "devDependencies": {
-    "@labkey/build": "9.1.4-fb-packagesMay15.0",
+    "@labkey/build": "9.1.4",
     "@types/jest": "30.0.0",
     "@types/react": "18.3.27",
     "jest": "30.4.2",
