@@ -27,32 +27,5 @@
   },
   "overrides": {
     "uuid": "14.0.0"
-  },
-  "jest": {
-    "globals": {
-      "LABKEY": {}
-    },
-    "moduleFileExtensions": [
-      "tsx",
-      "ts",
-      "js"
-    ],
-    "preset": "ts-jest",
-    "setupFilesAfterEnv": [
-      "<rootDir>/test/jest.setup.ts"
-    ],
-    "testEnvironment": "jsdom",
-    "testMatch": null,
-    "testRegex": "(\\.(test))\\.(ts|tsx)$",
-    "testResultsProcessor": "jest-teamcity-reporter",
-    "transform": {
-      "^.+\\.tsx?$": [
-        "ts-jest",
-        {
-          "isolatedModules": true,
-          "tsconfig": "node_modules/@labkey/build/webpack/tsconfig.json"
-        }
-      ]
-    }
   }
 }
