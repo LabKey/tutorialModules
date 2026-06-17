@@ -12,43 +12,20 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "7.39.1"
+    "@labkey/components": "7.42.1"
   },
   "devDependencies": {
-    "@labkey/build": "9.1.4",
+    "@labkey/build": "9.1.5",
     "@types/jest": "30.0.0",
-    "@types/react": "18.3.27",
+    "@types/react": "18.3.31",
     "jest": "30.4.2",
     "jest-cli": "30.4.2",
     "jest-environment-jsdom": "30.4.1",
     "jest-teamcity-reporter": "0.9.0",
-    "ts-jest": "29.4.11"
+    "ts-jest": "29.4.11",
+    "uuid": "14.0.0"
   },
-  "jest": {
-    "globals": {
-      "LABKEY": {}
-    },
-    "moduleFileExtensions": [
-      "tsx",
-      "ts",
-      "js"
-    ],
-    "preset": "ts-jest",
-    "setupFilesAfterEnv": [
-      "<rootDir>/test/jest.setup.ts"
-    ],
-    "testEnvironment": "jsdom",
-    "testMatch": null,
-    "testRegex": "(\\.(test))\\.(ts|tsx)$",
-    "testResultsProcessor": "jest-teamcity-reporter",
-    "transform": {
-      "^.+\\.tsx?$": [
-        "ts-jest",
-        {
-          "isolatedModules": true,
-          "tsconfig": "node_modules/@labkey/build/webpack/tsconfig.json"
-        }
-      ]
-    }
+  "overrides": {
+    "uuid": "14.0.0"
   }
 }
