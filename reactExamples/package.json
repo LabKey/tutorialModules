@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
-    "@labkey/components": "7.54.3-fb-update-deps-aug-11.0"
+    "@labkey/components": "7.55.2"
   },
   "devDependencies": {
     "@labkey/build": "10.1.0",
